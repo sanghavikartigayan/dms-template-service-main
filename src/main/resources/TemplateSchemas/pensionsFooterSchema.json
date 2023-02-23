@@ -1,0 +1,15 @@
+{"approvedBy": "Mr C",
+    "isActive": true,
+    "processId": "SAD",
+    "templateFields": [
+        {
+            "defaultValue": "",
+            "fieldName": "footerCode",
+            "fieldType": "STRING",
+            "isRequired": true
+        }
+    ],
+    "templateName": "Pensions_footer_Template",
+    "templateType": "HTML",
+    "version": 1
+}

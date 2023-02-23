@@ -1,0 +1,130 @@
+{
+    "approvedBy": "Mr C",
+    "isActive": true,
+    "processId": "SAD",
+    "templateFields": [
+        {
+            "defaultValue": "",
+            "fieldName": "currentDate",
+            "fieldType": "DATE",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "recipientName",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "applicantType",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "memberName",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "memberNumber",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "address",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "address2",
+            "fieldType": "STRING",
+            "isRequired": false
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "city",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "provinceState",
+            "fieldType": "STRING",
+            "isRequired": false
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "postalZip",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "country",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "spouseName",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "receivedDate",
+            "fieldType": "DATE",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "applicationFeeRequired",
+            "fieldType": "BOOLEAN",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "spouseDobNotVerified",
+            "fieldType": "BOOLEAN",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "flvInfoMissing",
+            "fieldType": "BOOLEAN",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "startDateProofNotProvided",
+            "fieldType": "BOOLEAN",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "separationDateProofNotProvided",
+            "fieldType": "BOOLEAN",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "footerRefCode",
+            "fieldType": "STRING",
+            "isRequired": false
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "bussinessName",
+            "fieldType": "STRING",
+            "isRequired": false
+        }
+    ],
+    "templateName": "FLV_FollowUpLetter_Template",
+    "templateType": "HTML",
+    "version": 1
+}

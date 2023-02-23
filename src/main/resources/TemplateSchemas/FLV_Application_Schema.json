@@ -1,0 +1,100 @@
+{
+    "approvedBy": "Mr C",
+    "isActive": true,
+    "processId": "DMS-C",
+    "templateFields": [
+        {
+            "defaultValue": "",
+            "fieldName": "currentDate",
+            "fieldType": "DATE",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "memberName",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "memberNumber",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "address",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "address2",
+            "fieldType": "STRING",
+            "isRequired": false
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "city",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "provinceState",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "postalZip",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "country",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "confirmReceiptDate",
+            "fieldType": "DATE",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "spouseVerified",
+            "fieldType": "BOOLEAN",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "formerSpouse",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "flvCompleted",
+            "fieldType": "BOOLEAN",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "startDateProof",
+            "fieldType": "BOOLEAN",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "separationDateProof",
+            "fieldType": "BOOLEAN",
+            "isRequired": true
+        }
+    ],
+    "templateName": "FLVTemplate",
+    "templateType": "HTML",
+    "version": 1
+}

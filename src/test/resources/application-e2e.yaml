@@ -1,0 +1,33 @@
+spring:
+  main:
+    banner-mode: off
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    show-sql: true
+  autoconfigure:
+    exclude: org.springframework.cloud.stream.test.binder.TestSupportBinderAutoConfiguration
+  liquibase:
+    enabled: false
+  test:
+    database:
+      replace: none
+
+logging:
+  level:
+    com.omers: DEBUG
+
+donna:
+  security:
+    enable: false
+  web:
+    asyncTimeoutSeconds: 1
+    documentGenerationTimeoutSeconds: 1
+
+sharepoint-service:
+  scheme: http
+  host: sharepoint-service
+  port: 8080
+  basePath:

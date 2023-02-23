@@ -1,0 +1,101 @@
+replicas: 1
+env: uat5
+
+app:
+  vars:
+    CREDS: /app/profile/creds.env
+    _JAVA_OPTIONS: -Xms512M -Xmx2048M
+    DB_HOST: 10.16.104.194
+    DB_NAME: dms-template
+    DB_USER: dmstemplate_user
+    DB_USER_OWNER: dmstemplate_owner
+    SPRING_PROFILES_ACTIVE: uat5
+    SPRING_CLOUD_CONFIG_URI: http://spring-config-server.om-donna-uat5.svc.cluster.local:8080
+    KC_ISSUER: https://kc-uat5.non-prod-pen-gcp.omers.com/auth/realms/omers
+    PING_ISSUER: https://fedengine-uat.non-prod-pen-gcp.omers.com
+    PING_OPENID_ENDPOINT: https://fedengine-uat.non-prod-pen-gcp.omers.com/idp/userinfo.openid
+    KAFKA_HOST: omgnaekafb01-uat.omers.com:9091,omgnaekafb02-uat.omers.com:9091,omgnaekafb03-uat.omers.com:9091
+    DD_PROFILING_ENABLED: "true"
+
+service:
+  type: ClusterIP
+  sessionAffinity: ClientIP
+  containerPort: &port 8080
+
+deployment:
+  annotations:
+    vault.hashicorp.com/agent-inject: "true"
+    vault.hashicorp.com/role: "role-pensions-uat5-dms-template-service"
+    vault.hashicorp.com/ca-cert: /vault/tls/ca-bundle.crt
+    vault.hashicorp.com/tls-secret: vault-tls-secret
+    vault.hashicorp.com/agent-init-first: "true"
+    vault.hashicorp.com/agent-pre-populate-only: "true"
+    vault.hashicorp.com/agent-inject-secret-creds.env: "donna/donna/data/uat5/dms-template-db"
+    vault.hashicorp.com/secret-volume-path-creds.env: "/app/profile"
+    vault.hashicorp.com/agent-inject-template-creds.env: |
+      {{- with secret "donna/donna/data/uat5/dms-template-db" -}}
+      DB_PWD={{ .Data.data.DB_PWD }}
+      DB_PWD_OWNER={{ .Data.data.DB_PWD_OWNER }}
+      {{ end }}
+      {{- with secret "donna/donna/data/uat5/kafka" -}}
+      KAFKA_KEYSTORE_PASSWORD={{ .Data.data.KAFKA_KEYSTORE_PASSWORD }}
+      KAFKA_KEY_PASSWORD={{ .Data.data.KAFKA_KEY_PASSWORD }}
+      KAFKA_TRUSTSTORE_PASSWORD={{ .Data.data.KAFKA_TRUSTSTORE_PASSWORD }}
+      {{ end }}
+    traffic.sidecar.istio.io/excludeOutboundPorts: "9091"
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/actuator/prometheus"
+    prometheus.io/port: "8080"
+  ports:
+  - name: http
+    containerPort: *port
+    protocol: TCP
+  livenessProbe:
+    failureThreshold: 1
+    httpGet:
+      path: /actuator/health
+      port: http
+    periodSeconds: 10
+  readinessProbe:
+    failureThreshold: 1
+    httpGet:
+      path: /actuator/health
+      port: http
+    periodSeconds: 10
+  startProbe:
+    enabled: true
+  startupProbe:
+    httpGet:
+      path: /actuator/health
+      port: http
+
+
+kafka:
+  enabled: true
+  secret: kafka-jks
+
+resources:
+  limits:
+    cpu: 1000m
+    memory: 4096Mi
+  requests:
+    cpu: 600m
+    memory: 512Mi
+
+tolerations:
+- key: "dedicated"
+  operator: "Equal"
+  value: "donna"
+  effect: "NoSchedule"
+
+extraVolumes:
+  enabled: false
+  volumes:
+    - name: google-cloudstorage-key
+      enabled: true
+      mountPath: /var/secrets/google/key.json
+      subPath: key.json
+      secretName: cloudstorage-key
+
+datadog:
+  enabled: true

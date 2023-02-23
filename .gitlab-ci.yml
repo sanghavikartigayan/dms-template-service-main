@@ -1,0 +1,3 @@
+include:
+  - project: 'omers/pension-devops/shared-pipeline'
+    file: '.gitlab-ci-frameworks-v2-java17.yml'

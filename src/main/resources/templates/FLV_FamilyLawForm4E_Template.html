@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      lang="" xml:lang="">
+<head>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+
+        @page {
+            size: letter;
+            margin-left: 11mm;
+            margin-right: 11mm;
+            margin-bottom: 3mm;
+        }
+        .checkmark {
+            top: 0px;
+            position: relative;
+            transform: scale(1.5);
+        }
+         .text{
+            border: 0;
+            outline: 0;
+            border-bottom: 1px solid black;
+            width: 135px;
+        }
+        @media print {
+            div {
+                page-break-inside: avoid;
+            }
+        }
+        body {
+            line-height: 16px;
+            font-size: 10pt;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .footer {
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #000000;
+        }
+
+        input {
+            border: none;
+        }
+
+        table, td, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td {
+            height: 29px;
+        }
+
+        table {
+            border-left-style: hidden;
+            border-right-style: hidden;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .heading {
+            width: 100%;
+            background-color: lightgrey;
+            padding: 8px;
+        }
+
+        label {
+           padding: 4px;
+        }
+
+        .div-footer {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div id="page1-div" style="position:relative;width:100%;height:980px;">
+
+    <img src="https://storage.googleapis.com/dms-demo-latest/FSRA.jpg" style="position: absolute; height: 70px">
+    <img src="https://storage.googleapis.com/dms-demo-latest/FSRA%20Ontario.jpg" style="left: 180px;position: absolute; height: 53px;">
+
+
+
+    <div style="border-left: 1px solid black;padding-left: 17px;float: right; font-size: 19px;position: relative;width: 427px;"><b>Statement of Family Law Value
+        <br/>Retired Member with a Defined Benefit Pension </br><br/>Family Law Form FL–4E</b><br/><span style="font-size: 12px;">(Under section 67.2(9) of
+        the Pension Benefits Act)</span>
+    </div>
+
+    <div style="position: relative; top: 120px">
+    <p>This statement provides the imputed
+        value under the Pension Benefits Act and Family Law Act, for a Retired Member who was in receipt of a pension on
+        or before the family law valuation date (e.g., separation date). It is completed by the
+        plan administrator. This statement
+        is provided to both the Retired Member and the Retired Member’s spouse, regardless
+        of who makes the application.<br/><br/>The
+        imputed value (referred to as
+        <b>family law value </b>in
+        this statement) is the value of the pension that was accrued during
+        the spousal relationship. It is
+        calculated as of the family law valuation date. The family law value of the Retired Member’s
+        pension is used in the calculation
+        of the Retired Member’s net family property. The family law value of the survivor
+        pension is used in the calculation
+        of the Retired Member’s spouse’s net family property. This statement does not entitle
+        the Retired Member’s spouse to a
+        portion of the pension.<br/><br/>This statement includes details of how the family law values were calculated. If you
+        have questions about the
+        calculations, contact the plan
+        administrator.<br/><br/>Information about the pension valuation and division process can be found in the
+        <a href="https://www.fsrao.ca/consumers/pensions/pensions-and-marriage-breakdown-guide-members-and-their-spouses">Pensions
+            and Marriage Breakdown – a</a>
+        <a href="https://www.fsrao.ca/consumers/pensions/pensions-and-marriage-breakdown-guide-members-and-their-spouses">Guide
+            for Members and their Spouses.</a></p><br/>
+
+    <p class="heading"><b>Part A – Family Law Value</b>
+    </p>
+    <p style="position: relative;top: 14px;"><b>Name of Retired Member<br/></b></p><br/>
+    <table style="width: 100%">
+        <tbody>
+        <tr>
+            <td style="width: 482px; height: 36px">Last Name<br><span>${page1MemberLastName}</span></br></td>
+            <td style="width: 482px">First Name<br><span>${page1MemberFirstName}</span></br></td>
+            <td>Initials<br><span>${page1MemberInitials}</span></br></td>
+            <td style="width: 300px">Applicant <label>
+                <#if isPage1MemberApplicant==true>
+                <input class="checkmark" checked="checked" type="checkbox">
+                <#else>
+                <input class="checkmark" type="checkbox">
+                </#if>
+                Yes</label>
+                <label>
+                    <#if isPage1MemberApplicant==false>
+                    <input class="checkmark" checked="checked" type="checkbox">
+                    <#else>
+                    <input class="checkmark" type="checkbox"></#if>
+                    No</label></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p><b>Name of Retired Member’s
+        Spouse<br/></b></p>
+    <table style="width: 100%">
+        <tbody>
+        <tr>
+            <td style="width: 482px; height: 36px">Last Name<br><span>${page1SpouseLastName}</span></br></td>
+            <td style="width: 482px">First Name<br><span>${page1SpouseFirstName}</span></br></td>
+            <td>Initials<br><span>${page1SpouseInitials}</span></br></td>
+            <td style="width: 300px">Applicant <label>
+                <#if isPage1SpouseApplicant == true>
+                <input class="checkmark" checked = checked type="checkbox">
+                <#else>
+                <input class="checkmark" type="checkbox"></#if>
+                Yes</label>
+                <label>
+                    <#if isPage1SpouseApplicant == false>
+                <input class="checkmark" checked="checked" type="checkbox">
+                    <#else>
+                <input class="checkmark" type="checkbox"></#if>
+                No</label></td>
+        </tr>
+        <tr>
+            <td colspan="4" style="height: 36px">
+                You and your spouse have proposed
+                two valuation dates. The plan administrator will therefore<br/>
+                provide two statements. This
+                statement sets out ONE of the two proposed family law values.
+                <div style="display: inline-block; position: relative; padding-left: 60px ; bottom: 8px"><label>
+                    <#if isPage1ProposedFamilyLawValue == true>
+                    <input class="checkmark" type="checkbox" checked = checked name="checkbox0">
+                    <#else>
+                    <input class="checkmark" type="checkbox" name="checkbox0"></#if>
+                    Yes</label><label>
+                        <#if isPage1ProposedFamilyLawValue == false>
+                        <input class="checkmark" type="checkbox" checked="checked" name="checkbox0">
+                        <#else>
+                        <input class="checkmark" type="checkbox" name="checkbox0"></#if>
+                        No</label></div></td>
+        </tr>
+        </tbody>
+    </table>
+    </br>
+    <p>The starting date of your spousal
+        relationship is (yyyy/mm/dd):<span style="position: relative; left: 8px" class = "text">${page1StartingSpousalRelationDate}</span> <br/><br/>
+        <span>The starting date is based on:</span><br/>
+        <label style="padding-top: 4px;"><#if isPage1MarriageDate == true>
+            <input class="checkmark" checked="checked" type="checkbox">
+            <#else>
+            <input class="checkmark" type="checkbox"></#if>
+            your marriage date</label><br/>
+        <label style="padding-top: 4px;"><#if isPage1DateCommonLawRelationship == true>
+            <input class="checkmark" checked="checked" type="checkbox">
+            <#else>
+            <input class="checkmark" type="checkbox"></#if>
+            the date
+            when you and your spouse started living together in a common-law relationship</label><br/>
+        <label style="padding-top: 4px;"><#if isPage1DateChoosenJointly == true>
+            <input class="checkmark" checked="checked" type="checkbox">
+            <#else>
+            <input class="checkmark" type="checkbox"></#if>
+            the date that was jointly
+            chosen by you and your spouse</label><br/>
+        <label style="padding-top: 4px;">
+            <#if isPage1DateSpecifiedInCourtOrder == true>
+            <input class="checkmark" checked="checked" type="checkbox">
+            <#else>
+             <input class="checkmark" type="checkbox"></#if>
+            the date specified in your court order or family arbitration award</label>
+        <br/><br/><span style="padding-right: 83px;">Your <b>family law valuation date </b>is
+            (yyyy/mm/dd):</span><span class="text">${page1FamilyLawValuationDate}</span></p>
+    </div>
+    <div class=div-footer>
+    <hr style="position: relative;">
+        <div style="position: relative;text-align: center;" class="footer">
+            <span style="float: left;">PF-135E (2021)</span>
+            <span>© Queen's Printer for Ontario</span>
+            <span style="float: right">Page 1 of 13</span>
+        </div>
+    </div>
+    </div>
+
+<div id="page2-div" style="position:relative;width:100%;height:980px; top: 10px">
+    <p class="heading"><b>Family Law Value Summary</b></p>
+    <p>The <b>family law value</b> of the <b>Retired Member’s pension</b> (which <b>includes</b> bridging/supplemental
+        benefit(s) and surplus, if any, but <b>excludes</b> the spouse’s survivor pension) as of the family law
+        valuation date is:</p><br/>
+
+    <p><span style="padding-left:4px">$</span><span class="text">${page2Gross1} (GROSS)</span></p><br/>
+    <p>The <b>family law value</b> of the <b>spouse’s survivor pension</b> as of the family law valuation date is:</p>
+    <br/>
+    <p><span style="padding-left:4px">$</span><span class="text">${page2Gross2} (GROSS)</span></p><br/>
+    <p style="padding-bottom: 30px;"><b>Note:</b> The gross family law value of the Retired Member’s pension should be included as an asset on the
+        Retired Member’s financial statement. The gross family law value of the survivor pension should be included as
+        an asset on the Retired Member’s spouse’s financial statement. The future tax liability for the pension and
+        survivor pension should be listed as a debt on each spouse’s respective financial statement. Consult a family
+        law lawyer or financial advisor for advice on calculating the future tax rate. Neither the plan administrator
+        nor FSRA can provide assistance on determining the future tax liability, completing the financial statement or
+        calculating net family property.</p>
+    <p class="heading"><b>Part B – Pension Plan Information</b></p>
+    <table style="width: 100%;border-top-style: hidden; border-right-style: hidden;">
+        <tbody>
+        <tr style="height: 39px">
+            <td style="width: 70%">
+                Name of Pension Plan<br/>
+                <span>${page2NameOfPensionPlan}</span>
+            </td>
+            <td style="width: 30%">
+                Registration Number<br/>
+                <span>${page2RegistrationNumber}</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table style="width: 100%;border-top-style: hidden; border-right-style: hidden;"><tbody>
+        <tr style="height: 39px">
+            <td style="height: 36px" colspan="4">
+                Name of Employer/Union/Professional Association<br/>
+                <span>${page2NameOfEmployer}</span>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+    <table style="width: 100%;border-top-style: hidden; border-right-style: hidden;"><tbody>
+        <tr style="height: 39px">
+            <td colspan="4">
+                Plan Administrator<br/>
+                <span>${page2PlanAdminstrator}</span>
+            </td>
+        </tr>
+    </tbody></table>
+   <table style="width: 100%;border-top-style: hidden; border-right-style: hidden;"><tbody>
+        <tr style="height: 41px">
+            <td colspan="4" valign="bottom">
+                <b>Plan Administrator’s Contact Information</b>
+            </td>
+        </tr></tbody></table>
+    <table style="width: 100%;border-top-style: hidden; border-right-style: hidden;"><tbody>
+        <tr style="height: 41px">
+            <td style="width: 20%">
+                Unit Number<br/>
+                <span>${page2PartBUnitNumber}</span>
+            </td>
+            <td style="width: 20%">
+                Street Number<br/>
+                <span>${page2PartBStreetNumber}</span>
+            </td>
+            <td colspan="2">
+                Street Name<br/>
+                <span>${page2PartBStreetName}</span>
+            </td>
+        </tr>
+    </tbody></table>
+    <table style="width: 100%;border-top-style: hidden; border-right-style: hidden;"><tbody>
+        <tr style="height: 41px">
+            <td style="width: 25%">
+                City<br/>
+                <span>${page2PartBCity}</span>
+            </td>
+            <td style="width: 25%">
+                Province/State<br/>
+                <span>${page2PartBProvince}</span>
+            </td>
+            <td style="width: 25%">
+                Country<br/>
+                <span>${page2PartBCountry}</span>
+            </td>
+            <td style="width: 25%">
+                Postal Code/Zip Code<br/>
+                <span>${page2PartBPostalCode}</span>
+            </td>
+        </tr>
+    </tbody></table>
+    <table style="width: 100%;border-top-style: hidden; border-right-style: hidden;"><tbody>
+        <tr style="height: 41px">
+            <td style="width: 20%">
+                Telephone Number<br/>
+                <span>${page2PartBTelephoneNumber}</span>
+            </td>
+            <td style="width:20%">
+                Fax Number<br/>
+                <span>${page2PartBFaxNumber}</span>
+            </td>
+            <td colspan="2">
+                E-mail Address<br/>
+                <span>${page2PartBEmail}</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br/><br/>
+    <p class="heading"><b>Part C – Information about the Retired Member</b></p>
+    <table style="width: 100%; border-top-style: hidden">
+        <tr style="height: 41px">
+            <td style="width: 45%">
+                Last Name<br/>
+                <span>${page2PartCLastName}</span>
+            </td>
+            <td style="width: 45%">
+                First Name<br/>
+                <span>${page2PartCFirstName}</span>
+            </td>
+            <td style="width: 10%">
+                Initials<br/>
+                <span>${page2PartCInitials}</span>
+            </td>
+        </tr>
+    </table>
+    <table style="width: 100%; border-top-style: hidden">
+        <tr style="height: 41px">
+            <td style="width: 35%">
+                Date of Birth (yyyy/mm/dd)<br/>
+                <span>${page2PartCDateOfBirth}</span>
+            </td>
+            <td width="65%">
+                Employee/Pension Plan Identification Number, if applicable<br/>
+                <span>${page2PartCPensionPlan}</span>
+            </td>
+        </tr>
+        <tr style="height: 41px">
+            <td colspan="2">
+                The Retired Member’s pension is paid in the following form<br/>
+                (e.g. joint and survivor % pension):
+                <span style = "padding-left: 2px">${page2PartCJointAndSurvivorPension}</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                The guaranteed period for the Retired Member’s pension ends on (yyyy/mm):
+                <span style="padding-left: 2px"><#if isGuaranteedPeriodNotApplicable == false> ${page2PartCGuaranteedPensionEnd} <#else></#if></span>
+                <div style="display: inline-block; padding-left: 15px; position: relative"><label>
+                    <#if isPage2PartCGuaranteedPeriodNotApplicable == true>
+                    <input class="checkmark" checked= checked type="checkbox">
+                    <#else>
+                    <input class="checkmark" type="checkbox"></#if>
+                    not applicable</label></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                The Retired Member is entitled to contractual indexation:
+                <div style="float: right;padding-right: 150px"><label>
+                    <#if isPage2PartCContractualIndexation == true>
+                    <input class="checkmark" checked = checked type="checkbox" >
+                    <#else>
+                    <input class="checkmark" type="checkbox" ></#if>
+                    Yes</label>
+                <label>
+                    <#if isPage2PartCContractualIndexation == false>
+                    <input class="checkmark" checked="checked" type="checkbox">
+                    <#else>
+                    <input class="checkmark" type="checkbox"></#if>
+                    No</label></div>
+            </td>
+        </tr>
+    </table>
+    <div class="div-footer">
+        <hr style="position: relative;">
+        <div style="position: relative;text-align: center;" class="footer">
+            <span style="float: left;">PF-135E (2021)</span>
+            <span>© Queen's Printer for Ontario</span>
+            <span style="float: right">Page 2 of 13</span>
+        </div>
+    </div>
+    </div>
+
+
+<div id="page3-div" style="position:relative;width:100%;height:980px;">
+    <p class="heading"><b>Part D – Information about the Retired Member’s Spouse</b></p>
+    <table style="width: 100%; border-top-style: hidden; border-bottom: hidden";>
+        <tbody>
+        <tr>
+            <td style="width: 33%;height: 36px" valign="top">Last Name<br/><span>${page3PartDLastName}</span></td>
+            <td style="width: 33%;height: 36px" valign="top">First Name<br/><span>${page3PartDFirstName}</span></td>
+            <td>Intials<br/><span>${page3PartDInitials}</span></td>
+            <td style="width: 30%">Date of Birth (yyyy/mm/dd)<br/><span>${page3PartDDateOfBirth}</span></td>
+        </tr>
+        <tr>
+            <td colspan="4">The Retired Member’s spouse is entitled to a survivor pension upon the death of the Retired
+                Member
+                <label>
+                    <#if isPage3MemberSpouseEntitledToPension == true>
+                    <input class="checkmark" checked="checked" type="checkbox">
+                    <#else>
+                    <input class="checkmark" type="checkbox"></#if>
+                    Yes</label><label>
+                    <#if isPage3MemberSpouseEntitledToPension == false>
+                    <input class="checkmark" checked = checked type="checkbox">
+                    <#else>
+                    <input class="checkmark" type="checkbox"></#if>
+                    No</label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">If yes, the following survivor pension is payable as a percentage (%) of the Retired
+                Member’s lifetime pension:<br/><span style="width: 100%; padding: 16px; padding-left: 0px;">${page3PartDSurvivorPensionPayble}</span></td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <p class="heading"><b>Part E – Pension Division Options for the Retired Member’s Spouse</b></p>
+    <p>If the Retired Member is required to make an equalization payment, up to 50% of each pension instalment (that
+        accrued during the spousal relationship as of the family law valuation date) can be assigned to the Retired
+        Member’s spouse in a court order, family arbitration award or domestic contract (e.g., separation
+        agreement).</p>
+    <div style="padding: 12px; padding-right: 25px"><p style="background-color: lightgrey;padding: 10px">Example: A Retired Member’s monthly pension on the family law
+        valuation date is <span style="padding-left:4px">$</span>1,000. The parties were married 6 out of the 10 years of plan membership. The pension that
+        accrued during the marriage is: <br/>$1,000 X 6/10 =<span style="padding-left:4px">$</span>600. The maximum portion that can be paid to the spouse is 50%
+        of $600 = $300. Therefore, the maximum percentage of each pension instalment that can be paid to the spouse is
+        <span style="padding-left:4px">$</span>300/$1,000 X100% = 30%.</p></div>
+    <p>The following pension division options are available to the Retired Member’s spouse:</p>
+    <div style="position: relative; height: 569px; width: 100%; border: 1px solid black;">
+
+        <p><label style="position: relative; top: 3px"><#if isPage3PartEDivisionOfInstallment == true><input class="checkmark" type="checkbox" checked = checked style="left: 3px; top:3px"><#else><input class="checkmark" type="checkbox" style="left: 3px; top:3px"></#if><span style="padding-left: 9px"><b>Division of each instalment of the Retired Member’s pension as at the family law
+            valuation date</b> (by</span><span style="padding-left: 22px">completing <b>Spouse’s Application to Divide a Retired Member’s Pension (Family Law Form
+            FL–6)</b>).</span></label></p>
+
+        <div style="padding: 25px; padding-top: 12px; line-height: 15px">
+        <p>The Retired Member’s pension is payable for the lifetime of the Retired Member and stops on the Retired
+            Member’s death. Bridging/supplemental benefits are temporary benefits, which generally stop once the Retired
+            Member attains normal retirement age. The Retired Member’s pension reported below (including
+            bridging/supplemental benefits, if applicable) reflects amounts calculated as at the family law valuation
+            date. You will need to refer to this information if the pension is going to be divided (see the <b>Next
+                Steps</b> section of this statement).</p>
+        <br/>
+        <p><b>i) If the Retired Member is not entitled to bridging/supplemental benefits:</b></p><br/>
+            <p>The Retired Member’s monthly pension payable to date of death is: <span style="float: right; padding-right: 11px;"><span style="padding-left:4px">$</span><span class="text">${page3RetiredMemberPensionDateOfDeath}</span></span></p><br/>
+            <p>The maximum portion of each pension instalment that may be paid to the spouse is:<span style="float: right; padding-right: 11px;"><span style="padding-left:4px">$</span><span class="text" >${page3PensionInstallPaidToSpouse}</span></span></p>
+        <br/>
+            <p>The maximum percentage of each pension instalment that may be paid to the spouse is:<span style="float: right"><span style="padding-left:4px"></span><span class="text">${page3MaximumPerInstalmentPaidToSpouse}%</span></span></p>
+        <br/>
+            <p><b>ii) If the Retired Member is entitled to bridging/supplemental benefits until normal retirement age:</b></p>
+            <br/><p>The Retired Member’s normal retirement age is: <span style="float: right; padding-right: 11px;"><span class="text">${page3RetiredMemberNormalRetiremntAge}</span></span></p>
+        <br/><p>(a) The Retired Member’s monthly pension payable to the normal<br/>
+            <span style="padding-left: 24px">retirement age is:</span><span style="float: right;padding-right: 11px;"><span style="padding-left:4px">$</span><span class="text">${page3RetireMemberPensionNormalRetirementAge}</span></span></p>
+
+            <br/><p><span style="padding-left: 22px">The maximum portion of each pension instalment that may be paid to the<br/></span><span style="padding-left: 22px">spouse to the normal retirement age
+            is:</span><span style="float: right; padding-right: 11px;"><span style="padding-left:4px">$</span><span class="text">${page3MaxPorPensionPaidSpouseNormalRetireAge}</span></span></p><br/>
+        <p>(b) The Retired Member’s monthly pension payable from the normal retirement<br/>
+            <span style="padding-left: 24px">age to date of death is:</span><span style="float: right; padding-right: 11px;"><span style="padding-left:4px">$</span><span class="text">${page3PensionFromNormalToDeath}</span></span></p>
+            <br/><p><span style="padding-left: 22px">The maximum portion of each pension instalment that may be paid to the<br/></span>
+            <span style="padding-left: 22px">spouse from the normal retirement age
+                to the Retired Member’s death is:</span><span style="float: right; padding-right: 11px;"><span style="padding-left:4px">$</span><span class="text">${page3MaxPensionSpouseFromNormalToRetiredMemberDeath}</span></span></p>
+            <p><br/><span style="padding-left: 22px">The maximum percentage of each pension instalment that may</span><br/><span style="padding-left: 22px">be paid to the spouse is:</span><span style="float: right"><span class="text" type="text">${page3MaxPerInstallPaidToSpouse}%</span></span></p>
+    </div>
+</div>
+    <div class="div-footer">
+        <hr style="position: relative;">
+        <div style="position: relative;text-align: center;" class="footer">
+            <span style="float: left;">PF-135E (2021)</span>
+            <span>© Queen's Printer for Ontario</span>
+            <span style="float: right">Page 3 of 13</span>
+        </div>
+    </div>
+</div>
+
+
+<div id="page4-div" style="position:relative;width:100%;height:980px;">
+    <div style="height: 408px; width: 100%; border: 1px solid black;">
+        <div style="padding: 14px">
+        <p><b>iii) If the Retired Member is entitled to bridging/supplemental benefits before and after<br/><span style="padding-left: 22px">normal
+            retirement age:</span></b></p>
+            <p>The Retired Member’s normal retirement age is: <span style="float: right; padding-right: 11px"><span style="padding-left: 4px" class="text">${page4PartERetiredMemberNormalRetirementAge}</span></span></p><br/>
+            <p>(a) The Retired Member’s monthly pension payable to the normal retirement<br/><span style="padding-left: 22px">age is:</span><span style="float: right; padding-right: 11px"><span style="padding-left:4px">$</span><span class="text">${page4PartERetiredMemberPensionNormalRetirementAge}</span></span></p>
+        <br/><p style="padding-left: 22px;">The maximum portion of each pension instalment that may be paid to the<br/><span style="padding-left: 0px">spouse to the normal retirement age
+            is:</span> <span style="float: right; padding-right: 34px"><span style="padding-left:4px">$</span><span class="text">${page4PartEMaxPortionPensionSpouseNormalRetirementAge}</span></span></p>
+            <br/><p>(b) The Retired Member’s monthly pension payable from the normal retirement<br/><span style="padding-left: 22px">age to age 65 is: </span><span style="float: right; padding-right: 11px"><span style="padding-left:4px">$</span>
+            <span class="text">${page4PartERetireMemberPensionFromNormalRetirement}</span></span></p><br/>
+        <p style="padding-left: 22px">The maximum portion of each pension instalment that may be paid to the<br/>
+            <span style="padding-left: 0px">spouse from the normal retirement age
+                to age 65 is: </span><span style="float: right; padding-right: 34px"><span style="padding-left:4px">$</span><span class="text">${page4PartEMaxPortionPensionSpouseNormalRetirementAgeto65}</span></span></p>
+        <br/><p>(c) The Retired Member’s monthly pension payable from age 65 to date of<br/>
+            <span style="padding-left: 22px">death is: </span><span style="float: right; padding-right: 11px"><span style="padding-left:4px">$</span><span class="text">${page4PartERetireMemberPansionFrom65ToDeath}</span></span></p>
+        <br/>
+        <p style="padding-left: 22px;">The maximum portion of each pension instalment that may be paid to the<br/><span style = "padding-left: 0px">spouse from age 65 to the Retired
+            Member’s death is: </span><span style="float: right; padding-right: 34px"><span style="padding-left:4px">$</span><span class="text">${page4PartEMaxPensionSpouseFrom65ToRetiredMemberDeath}</span></span></p>
+            <br/><p style="padding-left: 22px;">The maximum percentage of each pension instalment that may be paid to the<br/><span style="padding-left: 0px">spouse is:</span> <span style="float: right; padding-right: 23px"><span class="text">${page4PartEMaxPercentagePensionSpouse}%</span></span></p>
+    </div>
+</div>
+    <div style="position: relative; height: 212px; width: 100%; border: 1px solid black;">
+        <div style="padding: 14px">
+        <p><label><#if isPage4PartECombinedOptionPension == true><input class="checkmark" checked="checked" type="checkbox"><#else><input class="checkmark" type="checkbox"></#if><b>Combined option pension </b> (available only if the pension plan provides this
+            option).</label></p><br/>
+        <div style="padding-left: 15px">The spouse’s pension is paid independently from the pension payable to the Retired Member. If this option is
+            available and selected, the spouse must waive the survivor pension by completing <b>Spouse’s Application to
+                Divide a Retired Member’s Pension – Special (Combined Option) (Family Law Form FL–6S).</b> The amount of
+            pension payable to the spouse is the amount that can be provided by the spouse’s portion of the family law
+            value of the Retired Member’s pension plus the family law value of the survivor pension.<br/><br/>
+        The estimated amount of the combined option monthly pension payable to the spouse (assuming that the maximum
+            portion of the family law value of the Retired Member’s pension is payable) is:<br/><br/>
+            $<#if isPage4PartECombinedOptionPension == true><span class="text">${page4PartEestimedAmountPaybleToSpouse}</span><#else><span class="text"></span></#if> (Note: This amount is an estimate only and is not guaranteed.)</div><br/>
+        </div>
+    </div>
+    <div style="position: relative; height: 178px; width: 100%; border: 1px solid black;">
+        <div style="padding: 10px">
+        <p><label><#if isPage4RetiredMemberPensionCannotDivide == true><input class="checkmark" checked="checked" type="checkbox">
+            <#else><input class="checkmark" type="checkbox"></#if>
+            The Retired Member’s pension cannot be divided. This is because: <br/>
+            <#if isPage4RetiredMemberPensionCannotDivide == true><span type="text" style="width: 100%; height: 145px">${page4RetiredMemberCannotDivideReason}</span>
+            <#else><span type="text" style="width: 100%; height: 145px"></span></#if>
+            </label></p>
+        </div>
+    </div>
+    <div class="div-footer">
+        <hr style="position: relative;">
+        <div style="position: relative;text-align: center;" class="footer">
+            <span style="float: left;">PF-135E (2021)</span>
+            <span>© Queen's Printer for Ontario</span>
+            <span style="float: right">Page 4 of 13</span>
+        </div>
+    </div>
+</div>
+
+
+<div id="page5-div" style="position:relative;width:100%;height:980px;">
+    <p class="heading"><b>Part F – Certification by the Plan Administrator</b></p><br/>
+    <p>I certify that this statement is accurate based on the information provided by the applicant in their <b>Application
+        for Family Law Value (Family Law Form FL–1)</b> and the data contained in the pension plan records.</p>
+    <br/>
+    <table style="width: 100%">
+        <tbody>
+        <tr style="height: 44px">
+            <td colspan="4">
+                Name of plan administrator or plan administrator’s authorized agent or representative (printed)<br/>
+                <span style="width: 99%">${page5PartFNameOfPlanAdministrator}</span>
+            </td>
+        </tr>
+        <tr style="height: 55px">
+            <td valign="top" colspan="3">
+                Signature of plan administrator or plan administrator’s authorized agent or representative<br/>
+                <span style="width: 99%">${page5PartFSignOfPlanAdminstrator}</span>
+            </td>
+            <td valign="top">
+                Date (yyyy/mm/dd)<br/>
+                <span style="width: 99%">${page5PartFDate}</span>
+            </td>
+        </tr>
+        <tr>
+            <td valign="bottom" colspan="4">
+                <b>Information about the plan administrator’s authorized agent or representative (if applicable)</b>
+            </td>
+        </tr>
+        </tbody></table>
+    <table style="width: 100%"><tbody>
+        <tr style="height: 44px">
+            <td colspan="2">
+                Firm/Company Name<br/>
+                <span style="width: 99%">${page5PartFFirmName}</span>
+            </td>
+        </tr></tbody></table>
+    <table style="width: 100%"><tbody>
+        <tr style="height: 44px">
+            <td style="width: 20%">
+                Unit Number<br/>
+                <span style="width: 98%">${page5PartFUnitNumber}</span>
+            </td>
+            <td style="width: 20%">
+                Street Number<br/>
+                <span style="width: 98%">${page5PartFStreetNumber}</span>
+            </td>
+            <td colspan="2">
+                Street Name<br/>
+                <span style="width: 98%">${page5PartFStreetName}</span>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+    <table style="width: 100%"><tbody>
+        <tr style="height: 44px">
+            <td style="width: 25%">
+                City<br/>
+                <span style="width: 98%">${page5PartFCity}</span>
+            </td>
+            <td style="width: 25%">
+                Province/State<br/>
+                <span>${page5PartFProvince}</span>
+            </td>
+            <td style="width: 25%">
+                Country<br/>
+                <span style="width: 98%">${page5PartFCountry}</span>
+            </td>
+            <td style="width: 25%">
+                Postal Code/Zip Code<br/>
+                <span style="width: 98%">${page5PartFPostalCode}</span>
+            </td>
+        </tr></tbody></table>
+    <table style="width: 100%"><tbody>
+        <tr style="height: 44px">
+            <td style="width: 20%">
+                Telephone Number<br/>
+                <span style="width: 98%">${page5PartFTelephoneNumber}</span>
+            </td>
+            <td style="width: 20%">
+                Fax Number<br/>
+                <span style="width: 98%">${page5PartFFaxNumber}</span>
+            </td>
+            <td colspan="2">
+                E-mail Address<br/>
+                <span style="width: 98%">${page5PartFEmail}</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="div-footer">
+        <hr style="position: relative;">
+        <div style="position: relative;text-align: center;" class="footer">
+            <span style="float: left;">PF-135E (2021)</span>
+            <span>© Queen's Printer for Ontario</span>
+            <span style="float: right">Page 5 of 13</span>
+        </div>
+    </div>
+</div>
+
+
+<div id="page6-div" style="position:relative;width:100%;height:980px;line-height: 17px">
+    <p class="heading"><b>Next Steps</b></p><br/>
+    <p><b>If Your Decision is Not to Divide the Pension</b></p>
+    <p><span>•</span><span style="padding-left: 20px">Consider informing the plan administrator that the pension is not going to be divided.</span></p><br/>
+    <p><b>If Your Decision is to Divide the Pension</b></p>
+    <p><span>1.</span><span style="padding-left: 20px">Finalize the court order, family arbitration award or domestic contract. This document must:</span><br/>
+        <span style="padding-left: 32px;">a.</span><span style="padding-left: 10px;">state the family law valuation date;</span><br/>
+        <span style="padding-left: 32px;">b.</span><span style="padding-left: 10px;">include the name of the pension plan (as stated in <b>Part B</b>);</span><br/>
+        <span style="padding-left: 32px;">c.</span><span style="padding-left: 10px;">authorize the division of the Retired Member’s pension; and</span><br/>
+        <span style="padding-left: 32px;">d.</span><span style="padding-left: 10px;">state the spouse’s portion as either a specified amount ($) or a percentage (%) of each instalment of the
+            <span style="padding-left: 50px;">Retired Member’s pension (see <b>Part A</b> for the maximum payable).</span></span>
+    </p>
+    <p>
+        <span>2.</span><span style="padding-left: 20px">The court order, family arbitration award or domestic contract must be a certified copy. A “certified copy”
+        is a </span><span style="padding-left: 32px;">copy of the original document that has been certified as being a true copy of the original document.
+    </span></p>
+    <p>
+        <span>3.</span><span style="top: -17px;padding-left: 34px;display: inline-block;position: relative;">The Retired Member’s spouse must complete either the <b>Spouse’s Application to Divide a Retired Member’s </b>
+        <b>Pension (Family Law Form FL–6)</b> or <b>Spouse’s Application to Divide a Retired Member’s Pension – Special (Combined
+        Option) (Family Law Form FL–6S)</b>, as applicable. This form, together with the final court order, family
+        arbitration award or domestic contract must be sent to the plan administrator.</span>
+    </p>
+    <p>
+        <span style="position:relative;top: -13px">4.</span><div style="padding-left: 34px;position: relative;top: -30px;">See the
+        <a href="https://www.fsrao.ca/consumers/how-fsra-protects-consumers/pensions/pensions-and-marriage-breakdown-guide-members-and-their-spouses">
+            Pensions and Marriage Breakdown – a Guide for Members and their Spouses</a>
+        for additional considerations (e.g., treatment of: arrears, indexation, death of spouse, etc.).</div>
+    </p>
+    <p>
+        <span style="position:relative;top: -27px">5.</span><span style="padding-left: 20px; position:relative; top: -27px">The following is additional information from the plan administrator:</span><br/>
+        <span style="width: 99%; height: 440px; display: inline-block">${page6NextStepsAdditionInformation}</span>
+    </p>
+    <hr>
+    <p>
+        <b>IMPORTANT:</b> If the Retired Member’s pension ceased to be available under the pension plan before the
+        Retired Member’s spouse submits the <b>Family Law Form FL–6</b> or <b>FL–6S</b>, the plan administrator is not required
+        to divide the pension.
+    </p>
+    <div class="div-footer">
+        <hr style="position: relative;">
+        <div style="position: relative;text-align: center;" class="footer">
+            <span style="float: left;">PF-135E (2021)</span>
+            <span>© Queen's Printer for Ontario</span>
+            <span style="float: right">Page 6 of 13</span>
+        </div>
+    </div>
+</div>
+
+<div id="page7-div" style="position:relative;width:100%;height:980px;">
+
+    <div style="border-left: 1px solid black; float: right; position:relative; font-size: 19px; padding-left: 17px; width: 415px"><b>Worksheet – Calculation of
+        Preliminary Value <br/>and Family Law Value</b></div>
+    <br/>
+    <div style="position: relative; top: 80px">
+    <p>The Worksheet and Additional Disclosure sections provide details and data on the calculations for independent
+        verification. Any calculations that are not applicable will be left blank by the plan administrator. The
+        following information is provided on the Worksheet:</p><br/>
+    <p>Part 1 – Retired Member Information</p><br/>
+        <p style="padding-left: 13px"><span>•</span><span style="padding-left: 10px">Step 1 is the calculation of the preliminary value of the Retired Member’s pension;</span></p><br/>
+        <p style="padding-left: 13px"><span>•</span><span style="padding-left: 10px">Step 2 is the calculation of the family law value of the Retired Member’s pension; and</span></p><br/>
+    <p>Part 2 - Retired Member’s Spouse Information</p></br>
+        <p style="padding-left: 13px"><span>•</span><span style="padding-left: 10px">Calculation of the preliminary value and family law value of the spouse’s survivor pension</span></p><br/>
+    <hr>
+    <p style="text-align: center; padding: 4px; font-size: 17px"><b>Part 1 – Retired Member Information</b></p>
+    <hr>
+    <p class="heading"><b>Step 1 – Calculation of Preliminary Value</b></p><br/>
+    <p><b>NOTE:</b> The <b>preliminary value</b> is the total value of the pension accrued by the Retired Member as of
+        the family law valuation date. It has not been adjusted to reflect the period of the spousal relationship.
+        Calculation 1 or 2 has been completed, as applicable.</p>
+    <br/>
+    <table style="border-left: #303030; border-right: #303030; width: 99%">
+        <tbody>
+        <tr style="background-color: lightgrey">
+            <td colspan="3"><b>Calculation 1 - Information about the Preliminary Value of the Retired Member’s
+                Pension</b></td>
+        </tr>
+        <tr style="height: 56px">
+            <td style="width: 60%">
+                Commuted value of the Retired Member’s pension (including any survivor pension and bridging/supplemental
+                benefit(s)) as of the family law valuation date
+            </td>
+            <td style="width: 20%">
+                <span style="padding-left:4px">$</span><span>${page7Calculation1CommutedValueRetiredMemberPension}</span>
+            </td>
+            <td style="width: 20%">
+                <b style="padding-left: 3px">=X</b>
+            </td>
+        </tr>
+        <tr style="height: 56px">
+            <td>
+                Less: Commuted value of any spouse’s survivor pension (including any survivor pension related to the
+                bridging/supplemental benefit(s)) as of the family law valuation date
+            </td>
+            <td>
+                <span style="padding-left:4px">$</span><span>${page7CommutedValueSpouseSurvivorPension}</span>
+            </td>
+            <td>
+                <b style="padding-left: 3px">=Y</b>
+            </td>
+        </tr>
+        <tr style="height: 56px">
+            <td>
+                Initial preliminary value of the Retired Member’s pension is <b>(X – Y)</b>:
+            </td>
+            <td>
+                <span style="padding-left:4px">$</span><span>${page7PreliminaryValueRetiredMemberPension}</span>
+            </td>
+            <td>
+                <b style="padding-left: 3px">=G</b>
+            </td>
+        </tr>
+        <tr style="height: 56px">
+            <td>
+                Plus, surplus assets payable, if applicable (0 if not applicable or unknown)
+            </td>
+            <td>
+                <span style="padding-left:4px">$</span><span>${page7SurplusAssetsPayable}</span>
+            </td>
+            <td>
+                <b style="padding-left: 3px">= surplus</b>
+            </td>
+        </tr>
+        <tr style="height: 56px">
+            <td>
+                <b>Preliminary value of the pension</b>
+            </td>
+            <td>
+                <span style="padding-left:4px">$</span><span>${page7PreliminaryValuePension}</span>
+            </td>
+            <td>
+                <b style="padding-left: 3px">= G + surplus</b>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="div-footer">
+        <hr style="position: relative;">
+        <div style="position: relative;text-align: center;" class="footer">
+            <span style="float: left;">PF-135E (2021)</span>
+            <span>© Queen's Printer for Ontario</span>
+            <span style="float: right">Page 7 of 13</span>
+        </div>
+    </div>
+
+</div>
+
+<div id="page8-div" style="position:relative;width:100%;height:980px;">
+    <table style="border-left: #303030; border-right: #303030; width: 99%">
+        <tbody>
+        <tr class="heading">
+            <td colspan="3">
+                <b>
+                    Calculation 2 - Information about the Retired Member’s Preliminary Value (Affected by Wind Up)
+                </b>
+            </td>
+        </tr>
+        <tr style="height: 56px">
+            <td colspan="3">
+                The pension plan has been wound up and the effective date of the wind up occurred <b>on or before</b>
+                your family law valuation date. If the effective date of the wind up occurred <b>after</b> your family
+                law valuation date, <b>Calculation 1</b> applies instead.
+            </td>
+        </tr>
+        <tr style="height: 56px">
+            <td style="width: 60%">
+                Commuted value of the Retired Member’s pension (including any survivor pension and bridging/supplemental
+                benefit(s)) as of the wind up date
+            </td>
+            <td style="width: 20%">
+                <span style="padding-left:4px">$</span><span>${page8CommutedValueOfRetiredMemberPension}</span>
+            </td>
+            <td style="width: 20%">
+                <b style="padding-left: 3px">= X</b>
+            </td>
+        </tr>
+        <tr style="height: 56px">
+            <td>
+                Less: Commuted value of any spouse’s survivor pension (including any survivor pension related to the
+                bridging/supplemental benefit(s)) as of the wind up date
+            </td>
+            <td style="width: 20%">
+                <span style="padding-left:4px">$</span><span>${page8CommutedValueOfSpouseSurvivorPension}</span>
+            </td>
+            <td>
+                <b style="padding-left: 3px">= Y</b>
+            </td>
+        </tr>
+        <tr style="height: 56px">
+            <td>
+                Plus: Accumulated interest on <b>(X – Y)</b> from the wind up date to the family law valuation date
+            </td>
+            <td>
+                <span style="padding-left:4px">$</span><span>${page8AccumulatedInterest}</span>
+            </td>
+            <td>
+                <b style="padding-left: 3px">= Z</b>
+            </td>
+        </tr>
+        <tr style="height: 56px">
+            <td>
+                Initial preliminary value of the Retired Member’s pension is <b>(X – Y + Z)</b>
+            </td>
+            <td>
+                <span style="padding-left:4px">$</span><span>${page8InitialPreliminaryValueRetiredMember}</span>
+            </td>
+            <td>
+                <b style="padding-left: 3px">= G</b>
+            </td>
+        </tr>
+        <tr style="height: 56px">
+            <td>Plus, surplus assets payable, if applicable (0 if not applicable or unknown)</td>
+            <td>
+                <span style="padding-left:4px">$</span><span>${page8SurplusAssestsPayable}</span>
+            </td>
+            <td><b style="padding-left: 3px">= surplus</b></td>
+        </tr>
+        <tr style="height: 56px">
+            <td>
+                <b>Preliminary value of the pension</b>
+            </td>
+            <td>
+                <span style="padding-left:4px">$</span><span>${page8PreliminaryvaluePension}</span>
+            </td>
+            <td>
+                <b style="padding-left: 3px">= G + surplus</b>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br/>
+    <p class="heading"><b>Step 2 – Calculation of Family Law Value (Retired Member)</b></p><br/>
+    <p><b>NOTE:</b> The <b>family law value in Part 1 – Retired Member Information</b> is the portion of the <b>preliminary
+        value</b> that relates to the period of the spousal relationship (married or common-law) as of the family law
+        valuation date.</p>
+    <br/>
+    <table style="border-left: #303030; border-right: #303030; width: 99%">
+        <tbody>
+        <tr>
+            <td style="background-color: lightgrey" colspan="3">
+                <b>Family law value of the Retired Member’s pension</b>
+            </td>
+        </tr>
+        <tr style="height: 56px">
+            <td style="width: 60%">
+                The preliminary value calculated under <b>Step 1</b> above
+            </td>
+            <td style="width: 20%">
+                <span style="padding-left:4px">$</span><span>${page8Step2PreliminaryValueUnderStep1}</span>
+            </td>
+            <td style="width: 20%">
+                <b style="padding-left: 3px">= (G + surplus)</b>
+            </td>
+        </tr>
+        <tr style="height: 56px">
+            <td>
+                Total credited service accrued by the Retired Member during the spousal relationship period (beginning
+                on the starting date of the spousal relationship and ending on the family law valuation date)
+            </td>
+            <td>
+                <span>${page8Step2TotalCreditedServiceSpousalRelation}</span>
+            </td>
+            <td>
+                <b style="padding-left: 3px">= H</b>
+            </td>
+        </tr>
+        <tr style="height: 56px">
+            <td>
+                Total credited service accrued by the Retired Member during the entire period of employment or plan
+                membership as of the family law valuation date
+            </td>
+            <td>
+                <span>${page8Step2TotalCreditedServiceEntirePeriod}</span>
+            </td>
+            <td>
+                <b style="padding-left: 3px">= J</b>
+            </td>
+        </tr>
+        <tr style="height: 56px">
+            <td>
+                Family law value formula = <b>(G + surplus) x H/J</b><br/>(Note: H/J cannot exceed 1.)
+            </td>
+            <td width="182px">
+                <span style="padding-left:4px">$</span><span>${page8Step2familyLawValueFormula}</span>
+            </td>
+            <td>
+                <b style="padding-left: 3px">
+                    = family law value (pension)
+                </b>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="div-footer">
+        <hr style="position: relative;">
+        <div style="position: relative;text-align: center;" class="footer">
+            <span style="float: left;">PF-135E (2021)</span>
+            <span>© Queen's Printer for Ontario</span>
+            <span style="float: right">Page 8 of 13</span>
+        </div>
+    </div>
+
+</div>
+
+<div id="page9-div" style="position:relative;width:100%;height:980px;">
+    <hr>
+    <p style="text-align: center; font-size: 17px"><b>Part 2 – Retired Member’s Spouse Information</b></p>
+    <hr>
+    <table style="border-left: #303030; border-right: #303030; width: 99%">
+        <tbody>
+        <tr>
+            <td colspan="3" class="heading">
+                <b>Preliminary Value and Family Law Value of the Spouse’s Survivor Pension</b>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <b>NOTE:</b> The <b>preliminary value</b> is the commuted value of the survivor pension that is payable
+                to the spouse upon the death of the Retired Member as of the family law valuation date. The <b>family
+                law value</b> of the survivor pension is equal to the preliminary value. The survivor pension cannot be
+                divided. The survivor pension is payable upon the death of the Retired Member.
+            </td>
+        </tr>
+        <tr style="height: 56px">
+            <td>
+                The preliminary value and family law value of the spouse’s <b>survivor<br/>pension</b> is:
+            </td>
+            <td style="width: 26%">
+                <span style="padding-left:4px">$</span><span>${page9PreliminaryValueAndfamilyLawValueSpouse}</span>
+            </td>
+            <td>
+                (0 if not applicable)
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="div-footer">
+        <hr style="position: relative;">
+        <div style="position: relative;text-align: center;" class="footer">
+            <span style="float: left;">PF-135E (2021)</span>
+            <span>© Queen's Printer for Ontario</span>
+            <span style="float: right">Page 9 of 13</span>
+        </div>
+    </div>
+
+</div>
+
+<div id="page10-div" style="position:relative;width:100%;height:980px;">
+    <div style="border-left: 1px solid black; float: right; position:relative; font-size: 19px; padding-left: 17px;"><b>Additional Disclosures</b></div>
+    <div style="position: relative; top: 70px">
+    <p><b>Plan Membership and Employment Information as of the Family Law Valuation Date</b></p>
+    <table style="border:black; width: 100%">
+        <tbody>
+        <tr style="height: 42px">
+            <td>
+                The Retired Member joined the pension plan on (yyyy/mm/dd): <span>${page10RetiredMemberJoinDate}</span>
+            </td>
+        </tr>
+        <tr style="height: 42px">
+            <td>
+                The Retired Member commenced payment of the pension as of (yyyy/mm/dd): <span>${page10RetiredMemberCommencedPaymentDate}</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br/><br/>
+    <p><b>Explanation of Pension Plan Provisions that Apply to the Retired Member to Calculate the Family Law Value</b>
+    </p>
+        <p style="padding: 3px"><label>
+            <#if isPage10ExplanationPensionPlanApplyRetiredMember == true>
+            <input class="checkmark" checked="checked" type="checkbox">
+            <#else>
+            <input class="checkmark" type="checkbox"></#if>
+            Plan provisions are explained in a separate document that is included with this statement.</label>
+    </p>
+    <div style="position: relative; width: 100%; height: 600px; border: 1px solid black">
+        <p style="padding: 2px">
+            The following are details of the plan provisions (for example: pension form elected by the Retired Member,
+            post-retirement indexation, ancillary benefit(s), etc.):
+        </p><br/>
+        <#if isPage10ExplanationPensionPlanApplyRetiredMember == true><span style="width: 99%;height: 540px; display: inline-block">${page10DetailsOfPlanProvision}</span>
+        <#else><span style="width: 99%;height: 540px; display: inline-block"></span></#if>
+    </div>
+    </div>
+
+    <div class="div-footer">
+        <hr style="position: relative;">
+        <div style="position: relative;text-align: center;" class="footer">
+            <span style="float: left;">PF-135E (2021)</span>
+            <span>© Queen's Printer for Ontario</span>
+            <span style="float: right">Page 10 of 13</span>
+        </div>
+    </div>
+</div>
+
+<div id="page11-div" style="position:relative;width:100%;height:980px;">
+    <p><b>Actuarial Assumptions Used in the Calculation of the Preliminary Value</b></p>
+    <p><label>
+        <#if isPage11ActuarialAssumptions == true>
+        <input class="checkmark" checked="checked" type="checkbox">
+        <#else>
+        <input class="checkmark" type="checkbox">
+        </#if>
+        Actuarial assumptions are provided in a separate document that is included with this
+        statement.</label></p>
+    <table style="border: black; width: 100%;">
+        <tbody>
+        <th class="heading" style="width: 55%; text-align: center">
+            <b>Assumptions based on section 3500 of the Canadian<br/>Institute of Actuaries Standards of Practice</b>
+        </th>
+        <th  class="heading" style="text-align: center">
+            <b>Assumptions</b>
+
+        </th>
+        <tr style="height: 67px">
+            <td>
+                Non-indexed interest rate(s)
+            </td>
+            <td>
+                <#if isPage11ActuarialAssumptions == true><span>${page11NonIndexedInterestRate}</span>
+                <#else><span></span></#if>
+            </td>
+        </tr>
+        <tr style="height: 67px">
+            <td valign="top">
+                Indexed interest rate(s)<br/><br/><label>
+                <#if isPage11ActuarialAssumptions == true && isPage11IndexedRate == true>
+                <input class="checkmark" checked="checked" type="checkbox">
+                <#else>
+                <input class="checkmark" type="checkbox"></#if>
+                not applicable
+            </label></td>
+            <td>
+                <#if isPage11ActuarialAssumptions == true && isPage11IndexedRate == false><span>${page11AssumptionsNonIndexedRate}</span>
+                <#else><span></span></#if>
+            </td>
+        </tr>
+        <tr style="height: 67px">
+            <td valign="top">
+                Rate(s) of pension escalation<br/><br/><label>
+                <#if isPage11ActuarialAssumptions == true && isPage11RateOfPensionEscalation == true>
+                <input class="checkmark" checked="checked" type="checkbox">
+                <#else>
+                <input class="checkmark" type="checkbox"></#if>
+                not applicable</label>
+            </td>
+            <td>
+                <#if isPage11ActuarialAssumptions == true && isPage11RateOfPensionEscalation == false><span>${page11AssumptionsPensionEscalation}</span>
+                <#else><span></span></#if>
+            </td>
+        </tr>
+        <tr style="height: 67px">
+            <td valign="top">
+                Mortality table:<br/><br/><label>
+                <#if  isPage11ActuarialAssumptions == true && isPage11MortalityTableUnisex == true>
+                <input class="checkmark" checked="checked" type="checkbox">
+                <#else>
+                <input class="checkmark" type="checkbox"></#if>
+                unisex (specify % male and % female) and/or</label><br/><br/>
+                <label>
+                    <#if  isPage11ActuarialAssumptions == true && isPage11MortalityTableSexdistinct == true>
+                    <input class="checkmark" checked="checked" type="checkbox">
+                    <#else>
+                    <input class="checkmark" type="checkbox"></#if>
+                    sex-distinct (pre-87 service only)</label>
+            </td>
+            <td>
+                <#if isPage11MortalityTableUnisex == true || isPage11MortalityTableSexdistinct == true && isPage11ActuarialAssumptions == true>
+                <span>${page11MortalityAssumptions}</span>
+                <#else>
+                <span></span></#if>
+            </td>
+        </tr>
+        <tr style="height: 67px">
+            <td valign="top">
+                Other relevant assumptions<br/><br/><label>
+                <#if isPage11ActuarialAssumptions == true && isPage11OtherRelevantAssumptions == true>
+                <input class="checkmark" checked="checked" type="checkbox">
+                <#else>
+                <input class="checkmark" type="checkbox"></#if>
+                not applicable</label>
+            </td>
+            <td>
+                <#if isPage11ActuarialAssumptions == true && isPage11OtherRelevantAssumptions == false>
+                <span>${page11OtherRelevantAssumptions}</span>
+                <#else>
+                <span></span></#if>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br/>
+    <p><b>Shortened Life Expectancy Information</b></p>
+    <p style="padding: 4px"><label>
+        <#if isPage11ShortenedLifeInformation == true>
+        <input class="checkmark" checked="checked" type="checkbox">
+        <#else>
+        <input class="checkmark" type="checkbox"></#if>
+        not applicable</label></p>
+    <table style="border:black; width: 100%">
+        <tbody>
+        <tr>
+            <td>
+                The Retired Member has filed a shortened life expectancy application and the conditions that are
+                specified under section 12 or 13 of Ontario Regulation 287/11 (Family Law Matters) apply. The following
+                are the actuarial assumptions used in the calculation of the shortened life expectancy family law value:
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <#if isPage11ShortenedLifeInformation == false>
+                <span style="width: 700px;height: 200px; display: inline-block">${page11ShortenedLifeExpentancyApplication}</span>
+                <#else>
+                <span style="width: 700px;height: 200px; display: inline-block"></span></#if>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="div-footer">
+        <hr style="position: relative;">
+        <div style="position: relative;text-align: center;" class="footer">
+            <span style="float: left;">PF-135E (2021)</span>
+            <span>© Queen's Printer for Ontario</span>
+            <span style="float: right">Page 11 of 13</span>
+        </div>
+    </div>
+
+</div>
+
+<div id="page12-div" style="position:relative;width:100%;height:980px;">
+    <p><b>Information about the wind up of the pension plan</b></p>
+    <p style="padding: 4px"><label>
+        <#if isPage12WindUpPlan == true>
+        <input class="checkmark" checked="checked" type="checkbox">
+        <#else>
+        <input class="checkmark" type="checkbox"></#if>
+        not applicable</label></p>
+    <table style="border: #303030; width: 100%">
+        <tr style="height: 44px">
+            <td>
+                The following information is provided because the Retired Member is included in the wind up group. The
+                effective date of the wind up is <b>on or before</b> the date of this statement.
+            </td>
+        </tr>
+        <tr style="height: 44px">
+            <td>
+                Effective date of the wind up of the pension plan is (yyyy/mm/dd):
+                <#if isPage12WindUpPlan == false><span>${page12EffectiveDateOfWindUp}</span>
+                <#else><span></span></#if>
+            </td>
+        </tr>
+        <tr style="height: 44px">
+            <td>
+                The Retired Member’s pension will be reduced as a result of the wind up
+                <div style="float: right; padding-right: 100px"><label>
+                    <#if isPage12WindUpPlan == false && isPage12WindUpYes == true>
+                    <input class="checkmark" checked="checked" type="checkbox">
+                    <#else>
+                    <input class="checkmark" type="checkbox"></#if>
+                    yes</label>
+                <label>
+                    <#if isPage12WindUpPlan == false && isPage12WindUpNo == true>
+                    <input class="checkmark" checked="checked" type="checkbox">
+                    <#else>
+                    <input class="checkmark" type="checkbox"></#if>
+                    no</label>
+                    <label>
+                        <#if isPage12WindUpPlan == false && isPage12WindUpUnknown == true>
+                        <input class="checkmark" checked="checked" type="checkbox">
+                        <#else>
+                        <input class="checkmark" type="checkbox"></#if>
+                        unknown</label></div>
+            </td>
+        </tr>
+        <tr style="height: 44px">
+            <td>
+                The pension plan is covered by the Pension Benefits Guarantee Fund
+                <div style="float: right; padding-right: 178px"><label>
+                    <#if isPage12WindUpPlan == false && isPage12PensionPlanGuaranteedFundYes == true>
+                    <input class="checkmark" checked="checked" type="checkbox">
+                    <#else>
+                    <input class="checkmark" type="checkbox"></#if>
+                    yes</label>
+                <label>
+                    <#if isPage12WindUpPlan == false && isPage12PensionPlanGuaranteedFundNo == true>
+                    <input class="checkmark" checked="checked" type="checkbox">
+                    <#else>
+                    <input class="checkmark" type="checkbox"></#if>
+                    no</label></div>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <p><b>Information about surplus application made on or before the family law valuation date</b></p><p style="padding: 4px">
+    <label>
+        <#if isPage12SurplusApplicationFamilyLawValuationDate == true>
+        <input class="checkmark" checked="checked" type="checkbox">
+        <#else>
+        <input class="checkmark" type="checkbox"></#if>
+        not applicable</label></p>
+    <table style="border: #303030; width: 100%">
+        <tr>
+            <td>
+                The Retired Member is entitled to receive a share of surplus from the pension plan, which is not
+                included in family law value. The following is a summary of the relevant details of the surplus
+                application (e.g., information about the surplus sharing agreement, etc.):
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <#if isPage12SurplusApplicationFamilyLawValuationDate == false><span style="width:700px; height: 200px; display: inline-block">${page12SurplusApplicationFamilyLawValuation}</span>
+                <#else><span style="width:700px; height: 200px; display: inline-block"></span></#if>
+            </td>
+        </tr>
+    </table><br/>
+    <p><b>Information about pension plan amendments before the family law valuation date</b></p><p style="padding: 4px"><label>
+    <#if isPage12PensionPlanAmmendments == true>
+    <input class="checkmark" checked = "checked" type="checkbox">
+    <#else>
+    <input class="checkmark" type="checkbox"></#if>
+    not
+    applicable</label></p>
+    <table style="border: #303030">
+        <tbody>
+        <tr>
+            <td>
+                The Retired Member belongs to a class of employees that received (or will be receiving) payment(s)
+                resulting from amendment(s) to the pension plan related to cost of living adjustments during the last
+                three fiscal years of the pension plan before the family law valuation date. The following is an
+                explanation of the amendment(s) [e.g., date when the amendment was made, how much the Retired Member
+                received (or will receive), etc.].
+            </td>
+        </tr>
+        <tr style="height: 95px">
+            <td style="padding: 15px">
+                <label><b>Year 1</b></label>
+                <#if isPage12PensionPlanAmmendments == false>
+                <span type="text" style="float: right;width: 70%;">${page12PensionPlanAmmendentsYear1}</span>
+                <#else><span style="float: right;width: 70%;"></span></#if>
+            </td>
+        </tr>
+        <tr style="height: 95px">
+            <td style="padding: 15px">
+                <label><b>Year 2</b></label>
+                <#if isPage12PensionPlanAmmendments == false>
+                <span style="float: right;width: 70%;">${page12PensionPlanAmmendentsYear2}</span>
+                <#else><span style="float: right;width: 70%;"></span></#if>
+            </td>
+        </tr>
+        <tr style="height: 95px">
+            <td style="padding: 15px">
+                <label><b>Year 3</b></label>
+                <#if isPage12PensionPlanAmmendments == false>
+                <span style="float: right;width: 70%;">${page12PensionPlanAmmendentsYear3}</span>
+                <#else><span style="float: right;width: 70%;"></span></#if>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="div-footer">
+        <hr style="position: relative;">
+        <div style="position: relative;text-align: center;" class="footer">
+            <span style="float: left;">PF-135E (2021)</span>
+            <span>© Queen's Printer for Ontario</span>
+            <span style="float: right">Page 12 of 13</span>
+        </div>
+    </div>
+
+</div>
+
+<div id="page13-div" style="position:relative;width:100%;height:980px;">
+    <p><b>Information about additional voluntary contributions (AVCs) as of the family law valuation date</b></p><p style="padding:4px">
+    <label>
+        <#if isPage13AdditionaVoluntaryContribution ==true>
+        <input class="checkmark" checked="checked" type="checkbox">
+        <#else>
+        <input class="checkmark" type="checkbox"></#if>
+        not applicable </label></p>
+    <table style="border: black">
+        <tbody>
+        <tr style="height: 58px">
+            <td colspan="2">
+                AVCs are voluntary contributions that a pension plan member may make beyond those that are required to
+                be made under the pension plan. The terms of the pension plan specify whether AVCs are allowed and how
+                they are to be paid out. The Retired Member’s AVCs, if any, are <b>not included</b> in the family law
+                value set out in <b>Part A</b> of this statement.
+            </td>
+        </tr>
+        <tr style=" height: 42px">
+            <td>
+                The total AVCs as of the family law valuation date, including interest/investment earnings,<br/>remaining in
+                the pension plan is:
+            </td>
+            <td style="width: 20%">
+                <span style="padding-left:4px">$</span>
+                <#if isPage13AdditionaVoluntaryContribution == false>
+                <span>${page13AdditionalVolutaryContribution}</span>
+                <#else>
+                <span></span></#if>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+    <br/>
+    <p><b>Information about excess member contributions as of the family law valuation date</b></p><p style="padding: 4px"><label>
+    <#if isPage13ExcessMemberContribution == true>
+    <input class="checkmark" checked="checked" type="checkbox">
+    <#else>
+    <input class="checkmark" type="checkbox"></#if>
+    not applicable</label></p>
+    <table style="border: black">
+        <tr style="height: 58px">
+            <td colspan="2">
+                Excess member contributions arise in cases where a pension plan member's required contributions to the
+                pension plan made on or after January 1, 1987 (or an earlier date specified in the pension plan),and
+                interest/investment earnings on those contributions, exceed 50% of the commuted value of the pension
+                earned after that date. The Retired Member’s excess member contributions, if any, are <b>not
+                included</b> in the family law value set out in <b>Part A</b> of this statement.
+            </td>
+        </tr>
+        <tr style="height: 42px">
+            <td>
+                The total excess member contributions, including interest/investment earnings, remaining in the pension
+                plan is:
+            </td>
+            <td style="width: 20%">
+                <span style="padding-left:4px">$</span>
+                <#if isPage13ExcessMemberContribution == false><span>${page13ExcessMemberContribution}</span>
+                <#else><span></span></#if>
+            </td>
+        </tr>
+    </table>
+    <div class="div-footer">
+        <hr style="position: relative;">
+        <div style="position: relative;text-align: center;" class="footer">
+            <span style="float: left;">PF-135E (2021)</span>
+            <span>© Queen's Printer for Ontario</span>
+            <span style="float: right">Page 13 of 13</span>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

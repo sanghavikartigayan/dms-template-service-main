@@ -1,0 +1,454 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.7'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'com.gorylenko.gradle-git-properties' version '1.5.1'
+    id 'java-library'
+    id 'org.sonarqube' version '3.3'
+    id 'jacoco'
+    id 'idea'
+    id "org.openapi.generator" version "5.2.1"
+    id 'maven-publish'
+    id "com.github.johnrengelman.processes" version "0.5.0"
+    id 'org.liquibase.gradle' version '2.0.3'
+    id "org.springdoc.openapi-gradle-plugin" version "1.3.3"
+    id 'net.researchgate.release' version '3.0.2'
+}
+
+group = 'com.omers'
+
+sourceCompatibility = JavaVersion.VERSION_17
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.8"
+    reportsDir = file("${buildDir}/reports/jacoco")
+}
+
+jacocoTestReport {
+    executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/testcov.exec")
+    subprojects.each {
+        if (!it.name.contains('generated')) {
+            sourceSets it.sourceSets.main
+        }
+    }
+    reports {
+        xml.enabled true
+        csv.enabled true
+        html.enabled true
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.6
+            }
+        }
+
+        rule {
+            enabled = false
+            element = 'CLASS'
+            includes = ['org.gradle.*']
+
+            limit {
+                counter = 'LINE'
+                value = 'TOTALCOUNT'
+                maximum = 0.6
+            }
+        }
+    }
+}
+
+sonarqube {
+    properties {
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.projectName", "${rootProject.name}"
+        property "sonar.java.coveragePlugin", "jacoco"
+        //exclude files from sonar, supports glob pattern
+        property 'sonar.exclusions', '**/resources/db/*.sql, **/resources/templates/*.html, **/resources/TemplateSchemas/*.json'
+        //exclude files from coverage, supports glob pattern
+        property "sonar.coverage.exclusions", "**/*Test.java, **/config/*.java, **/exception/*.java, **/commands/*.java, **/events/*.java , **/entity/*.java, **/response/*.java, **/model/*.java, **/security/*.java"
+        property "sonar.cpd.exclusions", "**/events/JourneyValuationRequestedEvent.java"
+        property "sonar.projectBaseDir", "${projectDir}"
+        property "sonar.sources", "src/main"
+        property "sonar.java.binaries", "build"
+        property "sonar.java.source", "17"
+        property "sonar.tests", "src/test"
+        property "sonar.junit.reportsPath", "build/test-results/test"
+        property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
+    }
+}
+
+springBoot {
+    buildInfo()
+}
+
+ext {
+    set('springCloudVersion', "2021.0.2")
+    set('clientLibraryArtifact', 'dms-template-service-client')
+    set('nexusUrl',  'https://nexus.non-prod-pen-gcp.omers.com/repository')
+}
+
+allprojects {
+    print("Nexus user: " + System.getenv('NEXUS_USER').toString() + "\n")
+    repositories {
+        ["maven-public"].each {
+            def repo = it.toString()
+            maven {
+                credentials {
+                    username System.getenv('NEXUS_USER')
+                    password System.getenv('NEXUS_PASSWORD')
+                }
+                url "$nexusUrl/$repo/"
+                name "$repo"
+            }
+        }
+        maven { url "https://gitlab.non-prod-pen-gcp.omers.com/api/v4/projects/155/packages/maven" }
+
+    }
+}
+
+liquibase {
+    activities {
+        main {
+            changeLogFile 'src/main/resources/db/main-changelog.postgresql.sql'
+            url "jdbc:postgresql://${System.getenv('DB_HOST')}/${System.getenv('DB_NAME')}"
+            username System.getenv('DB_USER_RW')
+            password System.getenv('DB_PWD_RW')
+            if (System.getenv('DB_USER_RW') == null || System.getenv('DB_USER_RW').trim().isEmpty()) {
+                username System.getenv('DB_USER')
+                password System.getenv('DB_PWD')
+            }
+        }
+    }
+    runList = 'main'
+}
+
+dependencies {
+    // ======================================================================
+    // Compile Dependencies (included into the fat jar, used for compilation)
+    // ======================================================================
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.cloud:spring-cloud-stream-binder-kafka'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap' // required starting from spring boot 2.4
+
+    // Donna-Framework services
+    implementation (project(':dms-template-model')) {
+        exclude group: 'org.hibernate', module:'hibernate-annotations'
+    }
+
+    // Donna libraries
+    implementation 'com.omers:spring-vault-service:1.0.0'
+    implementation 'com.omers:donna-commons:1.0.1'
+    implementation 'com.omers:donna-logging:1.0.0'
+    implementation 'com.omers:donna-web-core:1.2.5'
+    implementation 'com.omers:omers-sourced-spring-boot-starter:1.1.1'
+
+
+    implementation 'de.codecentric:chaos-monkey-spring-boot:2.5.3'
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+    implementation 'org.freemarker:freemarker:2.3.31'
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+    implementation 'no.api.freemarker:freemarker-java8:2.0.0'
+    implementation("org.docx4j:docx4j-JAXB-ReferenceImpl:11.2.9") {
+        exclude group: 'ch.qos.logback', module: 'logback-classic'
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+        exclude group: 'org.apache.commons', module: 'commons-compress'
+        exclude group: 'org.apache.xmlgraphics', module: 'xmlgraphics-commons'
+    }
+    implementation 'org.apache.xmlgraphics:xmlgraphics-commons:2.6'
+    implementation 'org.apache.commons:commons-compress:1.0'
+    implementation "org.openapitools:jackson-databind-nullable:0.2.1"
+    // ======================================================================
+    // Liquibase
+    // ======================================================================
+    runtimeOnly 'org.liquibase:liquibase-core:3.10.3'
+    runtimeOnly 'org.liquibase:liquibase-groovy-dsl:2.1.1'
+    liquibaseRuntime 'org.liquibase:liquibase-core:3.8.1'
+    liquibaseRuntime 'org.liquibase:liquibase-groovy-dsl:2.1.1'
+    liquibaseRuntime 'org.postgresql:postgresql:42.3.4'
+    liquibaseRuntime sourceSets.main.compileClasspath
+    runtimeOnly 'org.postgresql:postgresql:42.3.4'
+
+    implementation "io.springfox:springfox-boot-starter:3.0.0"
+
+    // ======================================================================
+    // Compile-only Dependencies (not included into the fat jar, are used for compilation only)
+    // ======================================================================
+    compileOnly 'org.projectlombok:lombok'
+
+    // ======================================================================
+    // Annotation Processors (not included into the fat jar, used for compilation only)
+    // ======================================================================
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    // ======================================================================
+    // Runtime-only Dependencies (required for execution and included into the fat jar/war, but not required for compilation)
+    // ======================================================================
+    runtimeOnly 'org.postgresql:postgresql:42.3.4'
+
+    // ======================================================================
+    // Test Compile Dependencies
+    // ======================================================================
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    testImplementation 'org.testcontainers:junit-jupiter:1.16.0'
+    testImplementation 'org.testcontainers:postgresql:1.16.0'
+    testImplementation 'org.testcontainers:kafka:1.16.0'
+    testImplementation 'org.springframework.security:spring-security-oauth2-jose'
+    testImplementation 'org.springframework.security:spring-security-oauth2-resource-server'
+    testImplementation 'org.springframework.cloud:spring-cloud-stream-test-support'
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+    implementation 'org.awaitility:awaitility:4.1.0'
+
+    testImplementation('org.springframework.security:spring-security-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+
+    // ======================================================================
+    // Test Runtime-only Dependencies (not required for test compilation, but required for executing the tests)
+    // ======================================================================
+    testRuntimeOnly 'com.h2database:h2'
+    implementation 'org.junit.jupiter:junit-jupiter'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+test {
+    exclude '**/*E2E.class'
+    testLogging.showStandardStreams = true
+    testLogging.exceptionFormat = 'full'
+    systemProperty 'spring.profiles.active', 'test'
+    useJUnitPlatform()
+    reports {
+        junitXml.enabled = true
+        html.enabled = true
+    }
+    jacoco {
+        enabled = true
+        destinationFile = file("$buildDir/jacoco/${name}.exec")
+        includes = []
+        excludes = []
+        excludeClassLoaders = []
+        includeNoLocationClasses = false
+        sessionId = "<auto-generated value>"
+        dumpOnExit = true
+        classDumpDir = null
+        output = JacocoTaskExtension.Output.FILE
+        address = "localhost"
+        port = 6300
+        jmx = false
+    }
+}
+
+task e2eTest(type: Test) {
+    exclude '**/*Test.class'
+    description = 'Runs end to end tests'
+    group = 'verification'
+    testLogging.showStandardStreams = true
+    testLogging.exceptionFormat = 'full'
+    systemProperty 'spring.profiles.active', 'e2e'
+    useJUnitPlatform()
+    reports {
+        junitXml.enabled = true
+        html.enabled = true
+    }
+}
+
+task coverageMerge(type: JacocoMerge) {
+    destinationFile file("${rootProject.buildDir}/jacoco/test.exec")
+    executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
+}
+
+// aggregate all coverage data at root level
+if (tasks.findByName("test")) {
+    tasks.findByName("test").finalizedBy coverageMerge
+}
+
+if (tasks.findByName("e2eTest")) {
+    tasks.findByName("e2eTest").finalizedBy coverageMerge
+}
+
+task testCoverage {
+    dependsOn 'test'
+    dependsOn 'e2eTest'
+    dependsOn 'jacocoTestReport'
+    dependsOn 'jacocoTestCoverageVerification'
+    tasks.findByName('jacocoTestReport').mustRunAfter 'test'
+    tasks.findByName('jacocoTestCoverageVerification').mustRunAfter 'jacocoTestReport'
+}
+
+idea {
+    module {
+        excludeDirs = [file("postman")]
+    }
+}
+
+// OpenAPI Document Generation in Local Profile
+openApi {
+    apiDocsUrl.set("http://localhost:8080/v2/api-docs")
+    outputDir.set(file("$buildDir"))
+    outputFileName.set("api-docs.json")
+    waitTimeInSeconds.set(60)
+    forkProperties.set("-Dspring.profiles.active=test,openapi,donna.logging.enable=false")
+}
+
+// OpenAPI Client Generator
+// https://openapi-generator.tech/docs/generators/java/ for Java generator documentation
+// https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-gradle-plugin for Gradle plugin documentation
+openApiGenerate {
+    generatorName = "java"
+    library = "resttemplate"
+    inputSpec = "$buildDir/api-docs.json".toString()
+    outputDir = "$buildDir/generated/client-java".toString()
+    apiPackage = "com.omers.dms.core.client.api"
+    invokerPackage = "com.omers.dms.template.invoker"
+    modelPackage = "com.omers.dms.template.model"
+    id = clientLibraryArtifact
+    version = project.version
+    skipOverwrite = false
+    generateAliasAsModel = false
+    generateApiTests = false
+    generateModelTests = false
+    generateApiDocumentation = false
+    generateModelDocumentation = false
+    configOptions = [
+            configPackage: "com.omers.donna.generated.dms.template.api.config",
+            dateLibrary: "java8",
+            java8: "true",
+            interfaceOnly: "true",
+            useOptional: "true",
+            booleanGetterPrefix: "is",
+            useBeanValidation: "false",
+            sortParamsByRequiredFlag: "true",
+            hideGenerationTimestamp: 'true',
+            useReflectionEqualsHashCode : "true"
+    ]
+}
+
+tasks.findByName("openApiGenerate").dependsOn 'generateOpenApiDocs'
+
+task compileJavaServiceClient (type: JavaCompile) {
+    dependsOn 'openApiGenerate'
+    source = file("$buildDir/generated/client-java/src/")
+    classpath = sourceSets.main.runtimeClasspath
+    destinationDirectory = file("$buildDir/generated/client-java/build/")
+}
+
+task createServiceClientJarPackage(type: Jar) {
+    dependsOn 'compileJavaServiceClient'
+    from file("$buildDir/generated/client-java/build/".toString())
+    archiveBaseName = clientLibraryArtifact
+    destinationDirectory = file("$buildDir/generated/client-java-jar".toString())
+}
+
+// OpenAPI Client Generator - TS
+// https://openapi-generator.tech/docs/generators/typescript-fetch/for Typescript fetch documentation
+task openApiGenerateTS(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask) {
+
+    generatorName = "typescript-fetch"
+    inputSpec = "$buildDir/api-docs.json".toString()
+    outputDir = "$buildDir/generated/client-typescript".toString()
+
+    configOptions = [
+            enumPropertyNaming: "UPPERCASE",
+            npmName: clientLibraryArtifact,
+            typescriptThreePlus: "true",
+            withInterfaces: "true",
+            nullSafeAdditionalProps: "true",
+            npmVersion: project.version.toString(),
+            skipOverwrite: "false"
+    ]
+}
+
+
+publishing {
+    publications {
+
+        // this is for the executable jar and libraries
+        bootJava(MavenPublication) {
+            artifact tasks.named("bootJar")
+        }
+        // this is for the openApi client jar
+        serviceClient(MavenPublication) {
+            groupId = rootProject.group.toString()
+            artifactId = clientLibraryArtifact
+            artifact file("$buildDir/generated/client-java-jar/${clientLibraryArtifact}-${project.version.toString()}.jar".toString())
+        }
+
+    }
+    repositories {
+        maven {
+            repositories {url project.version.endsWith('-SNAPSHOT') != false ? "$nexusUrl/maven-snapshots/" : "$nexusUrl/maven-releases/" }
+            name = "Nexus"
+            credentials {
+                username System.getenv('NEXUS_USER')
+                password System.getenv('NEXUS_PASSWORD')
+            }
+        }
+    }
+}
+
+tasks.withType(PublishToMavenRepository) { task ->
+    def match = task.name =~ '^publish(.*)(Release|Debug)PublicationTo(.*)$'
+    dependsOn("bootJar")
+    dependsOn("createServiceClientJarPackage")
+}
+
+idea {
+    module {
+        excludeDirs = [file("postman")]
+    }
+}
+
+
+task publishSubProjects {
+    subprojects.each { dependsOn("${it.name}:publish") }
+}
+
+tasks {
+    beforeReleaseBuild {
+    }
+    afterReleaseBuild {
+        dependsOn 'publishSubProjects'
+        dependsOn 'publish'
+    }
+}
+
+
+release {
+    newVersionCommitMessage = '[release] - new version commit: '
+    preTagCommitMessage = '[release] - pre tag commit: '
+
+    // for tags to be like release-1.0.0 or so
+    tagTemplate = 'release-$version'
+
+    git {
+        requireBranch.set('master|main')
+    }
+
+// Should normally be true;  but due to the history of things, we will leave it until the libraries are themselves fixed
+    failOnSnapshotDependencies = false
+}

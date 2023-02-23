@@ -1,0 +1,110 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<#include "pensionsHeader.ftl">
+<#include "pensionsFooter.ftl">
+</head>
+    <body>
+        
+          <div id="content">
+            <p>${currentDate?date?string('MMMM dd, yyyy')}</p>
+
+            <p><#if applicantType == 'LFS' || applicantType == 'LM'>${recipientName}<br/></#if>
+				<#if applicantType == 'M'>${memberFirstName} ${memberLastName}<br/></#if>
+				<#if applicantType == 'FS'>${spouseFirstName} ${spouseLastName}<br/></#if>
+                <#if applicantType == 'LM' || applicantType == 'LFS'>${bussinessName}<br/></#if>
+
+
+            ${address}<br/>
+            <#if address2?has_content>
+            ${address2}<br/>
+            </#if>
+            ${city} ${provinceState} ${postalZip}<br/>
+            ${country}</p>
+            <b><u>Private and Confidential</u></b>
+
+            <p>Dear <#if applicantType == 'LFS' || applicantType == 'LM'>${recipientName}:</#if>
+				<#if applicantType == 'M'>${memberFirstName} ${memberLastName}:</#if>
+				<#if applicantType == 'FS'>${spouseFirstName} ${spouseLastName}:</#if></p>
+            
+            <h3 class="h3Style">
+                <div class="inlineBlock">
+                <span class="spanLeftMarginRight">
+                Re:	</span>
+                <span class="spanLeft">
+                Application for Family Law Value (FLV)<br/>
+				<#if applicantType != 'M'>${memberFirstName} ${memberLastName}<br/></#if>
+                Membership number: ${memberNumber}</span>
+            </div>
+            </h3>
+            <hr class="marginTop0"/>
+			
+			
+			<p>Please find the enclosed Statement of Family Law Value.
+			<#if applicantType =='LM'>			
+			Your client, ${memberFirstName} ${memberLastName}, has identified you as their contact person to receive these materials.
+			</#if>
+			<#if applicantType =='LFS'>			
+			Your client, ${spouseFirstName} ${spouseLastName}, has identified you as their contact person to receive these materials.
+			</#if>
+			<#if applicantType =='LFS'>			
+			A copy has also been sent to the OMERS member (or their contact person as directed).
+			</#if>
+			<#if applicantType =='FS'>			
+			Both you and the OMERS member (or their counsel as directed) have been sent a copy.
+			</#if>
+			<#if applicantType == 'LM'>
+			A copy has also been sent to the OMERS member’s former spouse (or their contact person as directed). 
+			</#if>
+			<#if applicantType == 'M'>
+			Your former spouse (or their counsel as directed) has also been sent a copy.
+			</#if>
+			</p>
+			<#if applicantType == 'LM'>
+			<p>Members who are going through a separation or divorce should review their current beneficiary information with OMERS to ensure it is up to date.  If your client has not already done so, please advise them to review their beneficiary designation to ensure that it continues to align with their wishes. This information can be viewed and/or updated in their personal myOMERS account. The OMERS member can sign in or create an account at myOMERS.com.</p>
+			</#if>
+			
+			<#if applicantType == 'M'>
+			<p>Members who are going through a separation or divorce should review their current beneficiary information with OMERS to ensure it is up to date.  If you have not already done so, please review your beneficiary designation to ensure that it continues to align with your wishes. This information can be viewed and/or updated in your personal myOMERS account. Sign in or create an account at myOMERS.com.</p>
+			</#if>
+			
+			<#if applicantType == 'LM'>
+			<p>Please advise your client that should the parties decide to proceed with a division of pension, any future requested pension estimate(s) will not account for a transfer of the Family Law Value; it will only report unadjusted pension amounts.</p>
+			</#if>
+			
+			<#if applicantType == 'M'>
+			<p>Be advised that should you and your former spouse decide to proceed with a division of pension, any future requested pension estimate(s) will not account for a transfer of the Family Law Value; it will only report unadjusted pension amounts.</p>
+			</#if>
+			
+			<#if (applicantType == 'M' || applicantType == 'FS') && multipleMembershipAVC == true>
+<p>Please be advised that should you and your former spouse decide to proceed with the division of the Additional Voluntary Contributions (AVC), the amount seen on each <i>Statement of Family Law Value</i> represent the total AVC account balance for all memberships.</p>
+			</#if>
+			
+			<#if (applicantType == 'M' || applicantType == 'LM') && rcaBenifit == true>
+			<p><h4>Retirement Compensation Arrangement (RCA) benefit</h4></p>
+<p>Please note that a valuation for a Retirement Compensation Arrangement (RCA) benefit as of the Family Law Valuation Date (FLV) Date is not reported on the attached <i>Statement Of Family Law Value</i>. The <i>Statement Of Family Law Value</i> and its governing legislation does not cover RCA benefits.</p>
+
+			<p><#if applicantType == 'M'> You </#if><#if applicantType == 'LM'>The member </#if> can contact OMERS directly for an RCA benefit estimate (which is not a valuation for marriage breakdown purposes) or other RCA information related to the administration of marriage breakdown.  If <#if applicantType == 'M'> you wish</#if><#if applicantType == 'LM'>the member wishes</#if> to obtain an RCA benefit estimate, <#if applicantType == 'M'> you </#if><#if applicantType == 'LM'>the member </#if> must make the request in writing. </p>
+			
+			<p>OMERS will provide an RCA lifetime benefit estimate (pension payable at normal retirement date calculated as at FLV Date) to the member only.  If <#if applicantType == 'M'> you wish</#if><#if applicantType == 'LM'>the member wishes</#if> for the same estimate to be sent to his/her former spouse, then OMERS will require written consent to do so. </p>
+
+			<p>Valuation of the RCA for marriage breakdown purposes will be up to the member and/or former spouse to obtain through an independent actuary.</p>
+			</#if>
+					
+            <p><h4>We’re here to help</h4></p>
+            <p>If you have questions please call Member Experience at +1 416.369.2444 or +1 800.387.0813, Monday to Friday between 8 a.m. and 5 p.m.
+			<#if applicantType == 'M'>
+			You can also start a conversation using our secure communication channel in your myOMERS account.  To allow us to serve you better, please quote the membership number shown above.
+			</#if>
+			<#if applicantType != 'M'>
+			You can also submit a question using our third-party contact form on omers.com. To allow us to serve you better, please quote the membership number shown above.
+			</#if>
+			</p>
+            <p>Regards,<br/>
+            Member Experience<br/>
+            </p>
+			
+        </div>
+	</body>
+</html>

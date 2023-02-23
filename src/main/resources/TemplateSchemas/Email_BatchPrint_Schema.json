@@ -1,0 +1,40 @@
+
+{"approvedBy": "Mr C",
+  "isActive": true,
+  "processId": "NFT",
+  "templateFields": [
+    {
+      "defaultValue": "",
+      "fieldName": "document_name",
+      "fieldType": "STRING",
+      "isRequired": true
+    },
+    {
+      "defaultValue": 0,
+      "fieldName": "batch_count",
+      "fieldType": "NUMBER",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "first_print_id",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "last_print_id",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "details",
+      "fieldType": "ARRAY",
+      "isRequired": false
+    }
+  ],
+  "templateName": "BatchPrintSample",
+  "templateType": "HTML",
+  "version": 1
+}

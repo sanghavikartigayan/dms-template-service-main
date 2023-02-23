@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "5d82f4af-67c0-483c-b973-576626514e0a",
+		"name": "DMS-Template-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateTemplate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{Token}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/agolionko/Developer/dms-template-service/Postman/coverLetterTemplate.docx"
+						},
+						{
+							"key": "templateJsonString",
+							"value": "{\"approvedBy\": \"Sameer\",\n  \"isActive\": true,\n  \"processId\": \"DMS-P\",\n  \"templateFields\": [\n    {\n      \"defaultValue\": \"123\",\n      \"fieldName\": \"Name\",\n      \"fieldType\": \"STRING\",\n      \"isRequired\": true\n    }\n  ],\n  \"templateName\": \"WelcomeLetter\",\n  \"templateType\": \"HTML\",\n  \"version\": 1\n}",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{DMS_TEMPLATE_SVC}}/v1/template"
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateTemplate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{Token}}"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/agolionko/Developer/dms-template-service/Postman/coverLetterTemplate.docx"
+						},
+						{
+							"key": "templateJsonString",
+							"value": "{\"approvedBy\": \"Sameer\",\n  \"isActive\": false,\n  \"processId\": \"ADMS-P\",\n  \"templateFields\": [\n    {\n      \"defaultValue\": \"123\",\n      \"fieldName\": \"Name\",\n      \"fieldType\": \"TEXT\",\n      \"isRequired\": true\n    }\n  ],\n  \"templateName\": \"WelcomeLetter\",\n  \"templateType\": \"DOCX\",\n  \"version\": 1\n}",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{DMS_TEMPLATE_SVC}}/v1/template/3fa5e6ac-fae4-4b62-afea-c3659d68fa81"
+			},
+			"response": []
+		},
+		{
+			"name": "GetTemplateById",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-length": true,
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{Token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{DMS_TEMPLATE_SVC}}/v1/template/ff055243-5ceb-42c0-adca-634ebc484db4"
+			},
+			"response": []
+		},
+		{
+			"name": "GetTemplateListByFilter",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-length": true,
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{Token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{DMS_TEMPLATE_SVC}}/v1/template/list?templateType=DOCX",
+					"host": [
+						"{{DMS_TEMPLATE_SVC}}"
+					],
+					"path": [
+						"v1",
+						"template",
+						"list"
+					],
+					"query": [
+						{
+							"key": "templateId",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "processId",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "templateType",
+							"value": "DOCX"
+						},
+						{
+							"key": "isActive",
+							"value": "false",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTemplateFileById",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-length": true,
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{Token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{DMS_TEMPLATE_SVC}}/v1/template/file/ff055243-5ceb-42c0-adca-634ebc484db4"
+			},
+			"response": []
+		}
+	]
+}

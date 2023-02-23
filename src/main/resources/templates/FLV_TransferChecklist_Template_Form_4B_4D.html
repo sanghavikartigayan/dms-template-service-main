@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            @page {
+                size: 215.9mm 279.4mm;
+                margin: 0 0 0 0 !important;
+                padding-top: 0 !important;
+            }
+            @media print {
+                body,
+                section[size="A4"] {
+                    size: 215.9mm 279.4mm;
+                    padding: 0;
+                    margin: 0;
+                    box-shadow: 0;
+                }
+                .content {
+                    display: block;
+                    overflow: hidden;
+                    width: 189.6mm;
+                }
+            }
+            @media screen {
+                body {
+                    background: rgb(204, 204, 204);
+                }
+                section {
+                    background: white;
+                    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+                }
+                section > .horizontalMargins {
+                    padding: 10.9mm 0 14.5mm 0 !important;
+                }
+            }
+            body {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            section {
+                display: block;
+                margin: 0 auto;
+                margin-bottom: 0.5cm;
+            }
+            section[size="A4"] {
+                width: 215.9mm;
+                height: 279.4mm;
+                position: relative;
+            }
+            section > .horizontalMargins {
+                margin: 0mm 13.15mm 0mm 13.15mm;
+                max-width: 100%;
+                display: block;
+                padding: 10.9mm 0 14.5mm 0 !important;
+            }
+            .content {
+                font-size: 10pt;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .bold {
+                font-weight: bold;
+            }
+            .greySection {
+                margin-top: 10px;
+                font-size: 10.2pt;
+                padding: 5px 10px 15px 10px;
+                margin-left: -1px;
+                width:186mm;
+                background-color: #f1f1f1;
+            }
+            .container {
+                display: inline-block;
+                position: relative;
+                margin-left: 15pt;
+                padding-left: 20pt;
+                cursor: pointer;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                margin-top:3pt;
+            }
+            .checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .footerBottom {
+                margin-top: 10px;
+                text-align: center;
+            }
+            .footerLeft {
+                float: left;
+                text-align: left;
+            }
+            .pageFooter {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 10px;
+                bottom: 20pt;
+                position: absolute;
+                border-top: 1px solid #000;
+                width: 189.6mm;
+                margin-left: 13.15mm;
+                margin-right: 13.15mm;
+            }
+            .subtext{
+                font-size: 7.8pt;
+            }
+            .omersBlue{
+                font-size: 14pt;
+                font-weight: bold;
+                color: #003A70;
+                margin-top:5pt;
+                margin-bottom:5pt;
+                margin-left:10pt;
+            }
+            .omersLogo{
+                text-align: right;
+            }
+            .sideBySide{
+                display: block;
+                width:100%;
+                padding: 10pt 0 10pt 0;
+            }
+            .leftSide{
+                display: inline-block;
+                width: 15%;
+                vertical-align: middle;
+            }
+            .rightSide{
+                display: inline-block;
+                width: 454pt;
+                vertical-align: middle;
+            }
+            .headerOverlay{
+                font-family: Arial, Helvetica, sans-serif;
+                color:#fff;
+                font-size:22pt;
+                font-weight: bold;
+                vertical-align: middle;
+                height:35pt;
+                margin:55pt 10pt 95pt 55pt;
+                position: absolute; 
+                width: 215.9mm;
+                top:0;
+            }
+            .headerContainer{
+                position: relative;
+                width: 100%;
+            }
+            .bottom{
+                position:absolute;
+                bottom:-499pt;
+                left:30pt;
+                width:50mm;
+                font-size:8pt
+            }
+        </style>
+    </head>
+    <body>
+        <section size="A4">
+            <span class="headerContainer">
+                <img src="FULL_PAGE_BG" style="width:215.9mm; height:278.4mm; display:block">
+                <div class="headerOverlay">
+                    <img src="CHECK_MARK" style="width:24pt; display:inline-block; vertical-align: middle; padding-right:5pt">
+                    <span style="margin-top:-1pt; margin-left:27pt; position:absolute;">Family Law Value Transfer Checklist</span>
+                </div>        
+            </span>
+            <span class="horizontalMargins" style="padding: 0 0 14.5mm 0 !important; position:absolute; top:170pt">
+                <span class="content">
+                    <div>
+                        <div class="omersBlue">
+                            A Plan member’s former spouse can use this checklist if proceeding with a transfer of the
+                            Family Law Value (FLV).
+                        </div>
+                    </div>
+                    <div class="sideBySide">
+                        <span class="leftSide"></span>
+                        <span class="rightSide">
+                        <div class="bold" style="top: 65pt; left:60pt; font-size:10.5pt; position:absolute">
+                            Be sure to provide all three of the required documents below. Submitting an incomplete
+                            application can significantly delay the process.
+                        </div>
+                    </span>
+                    </div>
+                    <div class="greySection" style="top: 110pt; position:absolute">
+                        <div class="bold">
+                            1. Marriage breakdown document (i.e., court order, domestic contract, family arbitration
+                            award)
+                        </div>
+                        
+                        <div>
+                            <label class="container">
+                                <#if block1field1==true><span class="checkmark"><input type="checkbox" checked="checked"/></span><#else><span class="checkmark"><input type="checkbox"/></span></#if>
+                                <span>Executed on or after January 1, 2012 under the Ontario <i>Family Law Act</i>;</span>
+                            </label>
+                        </div>
+                        <div>
+                            <label class="container">
+                                <#if block1field2==true><span class="checkmark"><input type="checkbox" checked="checked"/></span><#else><span class="checkmark"><input type="checkbox"/></span></#if>
+                                <span>Clearly specifies the transfer amount or percentage of the FLV to be paid from OMERS to the former spouse (for each membership, if applicable);</span>
+                            </label>
+                        </div>
+                        <div>
+                            <label class="container">
+                                <#if block1field3==true><span class="checkmark"><input type="checkbox" checked="checked"/></span><#else><span class="checkmark"><input type="checkbox"/></span></#if>
+                                <span>States the FLV Date that matches the date in the enclosed <i>Statement of Family Law Value;</i></span>
+                            </label>
+                        </div>
+                        <div>
+                            <label class="container">
+                                <#if block1field4==true><span class="checkmark"><input type="checkbox" checked="checked"/></span><#else><span class="checkmark"><input type="checkbox"/></span></#if>
+                                <span>Certified as a true copy of the original document by a lawyer,commissioner of oaths or notary public; and,</span>
+                            </label>
+                        </div>
+                        <div>
+                            <label class="container">
+                                <#if block1field5==true><span class="checkmark"><input type="checkbox" checked="checked"/></span><#else><span class="checkmark"><input type="checkbox"/></span></#if>
+                                <span>A complete copy of the marriage breakdown document has been provided.</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="greySection"style="top: 228pt; position:absolute">
+                        <div class="bold"><i>2. Spouse's Application for Transfer of a Lump Sum*</i></div>
+                        <div>
+                            <label class="container">
+                                <#if block2field1==true><span class="checkmark"><input type="checkbox" checked="checked"/></span><#else><span class="checkmark"><input type="checkbox"/></span></#if>
+                                <span>Parts A to D completed by the former spouse of the Plan member;</span>
+                            </label>
+                        </div>
+                        <div><label class="container">
+                                <#if block2field2==true><span class="checkmark"><input type="checkbox" checked="checked"/></span><#else><span class="checkmark"><input type="checkbox"/></span></#if>
+                                <span>Part E completed with thefinancial institution information or Part F completed with the pension plan information; and,</span>
+                            </label>
+                        </div>
+                        <div>
+                            <label class="container">
+                                <#if block2field3==true><span class="checkmark"><input type="checkbox" checked="checked"/></span><#else><span class="checkmark"><input type="checkbox"/></span></#if>     
+                                <span>Part H signed and dated by the former spouse of the Plan member.</span>
+                            </label>
+                        </div>
+                        <div>
+                            <span class="subtext">* This form is available on the Financial Services Regulatory Authority of Ontario (FSRA) website at fsrao.ca/industry/pensions/pensions-forms#family</span>
+                        </div>
+                    </div>
+                    <div class="greySection"style="top: 328pt; position:absolute">
+                        <div class="bold">3. Direction to administrator</div>
+                        <div>
+                            <label class="container">
+                                <#if block3field1==true><span class="checkmark"><input type="checkbox" checked="checked"/></span><#else><span class="checkmark"><input type="checkbox"/></span></#if>
+                                <span>Sections 1 and 2 completed by the former spouse of the Plan member with their information; and,</span>
+                            </label>
+                        </div>
+                        <div>
+                            <label class="container">
+                                <#if block3field2==true><span class="checkmark"><input type="checkbox" checked="checked"/></span><#else><span class="checkmark"><input type="checkbox"/></span></#if>
+                                <span>Section 4 completed and signed by the financial institution.</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div style="top: 400pt; position:absolute">
+                        <div class="bold">IMPORTANT</div>
+                        <ul style="margin-top:0">
+                            <li>
+                                If the start date of spousal relationship is included in the marriage breakdown document, it
+                                must match the start date listed in the enclosed <i>Statement of Family Law Value</i>.
+                            </li>
+                            <li>
+                                Please refer
+                                to page four of the enclosed <i>Statement of Family Law Value</i> for guidance on how interest is or is
+                                not included in a settlement transfer from the Plan.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="sideBySide" style="top: 470pt; left:-25pt; position:absolute">
+                        <span class="leftSide"></span>
+                        <span class="rightSide">
+                            <div class="bold">Return all documents to OMERS using one of the following:</div>
+                            <div><span class="bold">Fax:</span> +1 416.369.9704 or +1 877.369.9704</div>
+                            <div>
+                                <span class="bold">Mail:</span> EY Tower | 900 – 100 Adelaide St W | Toronto, ON M5H 0E2
+                            </div>
+                        </span>
+                    </div>
+                    <div class="bottom">
+                        02/22
+                    </div>
+                </span>
+            </span>
+        </section>
+    </body>
+</html>

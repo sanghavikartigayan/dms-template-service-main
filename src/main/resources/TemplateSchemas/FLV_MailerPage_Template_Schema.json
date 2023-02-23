@@ -1,0 +1,51 @@
+{"approvedBy": "Mr C",
+    "isActive": true,
+    "processId": "SAD",
+    "templateFields": [
+        {
+            "fieldName": "name",
+            "fieldType": "STRING",
+            "defaultValue": "",
+            "isRequired": true
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "STRING",
+            "defaultValue": "",
+            "isRequired": true
+        },
+        {
+            "fieldName": "address2",
+            "fieldType": "STRING",
+            "defaultValue": "",
+            "isRequired": false
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "STRING",
+            "defaultValue": "",
+            "isRequired": true
+        },
+        {
+            "fieldName": "provinceState",
+            "fieldType": "STRING",
+            "defaultValue": "",
+            "isRequired": false
+        },
+        {
+            "fieldName": "postalZip",
+            "fieldType": "STRING",
+            "defaultValue": "",
+            "isRequired": true
+        },
+        {
+            "fieldName": "country",
+            "fieldType": "STRING",
+            "defaultValue": "",
+            "isRequired": true
+        }
+    ],
+    "templateName": "FLV_MailerPage_Template",
+    "templateType": "HTML",
+    "version": 1
+    }

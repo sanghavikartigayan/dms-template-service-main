@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost:5432}/${DB_NAME:dms-template}?currentSchema=dmstemplate
+    username: ${DB_USER:dmstemplate_user}
+    password: ${DB_PWD:pgpwd-template-service}
+    hikari:
+      maximum-pool-size: 20
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: ${KAFKA_HOST:localhost:9092}
+          consumer-properties:
+            schema.registry.url: http://localhost:8081
+          producer-properties:
+            schema.registry.url: http://localhost:8081
+  liquibase:
+    change-log: classpath:/db/main-changelog.groovy
+
+# Change port if there's conflict with other services
+server:
+  port: 8080
+
+logging:
+  level:
+    com.omers: DEBUG
+
+openapi:
+  auth_token: eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJuNm5OZkFUUktKMVRsdVdabUd5Z2Vib3B2T3ptei1QV1cyZm5HNVRsREpzIn0.eyJleHAiOjE1OTM0Nzk0OTAsImlhdCI6MTU5MzQ3OTE5MCwiYXV0aF90aW1lIjoxNTkzNDYyNzUxLCJqdGkiOiJhNDE1MGQ1My1iYWYzLTRhMmQtOTc3OS04ZTRjNjIxNzQ5NWEiLCJpc3MiOiJodHRwczovL2tjLWRldi5ub24tcHJvZC1wZW4tZ2NwLm9tZXJzLmNvbS9hdXRoL3JlYWxtcy9vbWVycyIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiIwMmVmY2JiNC04MzViLTQ1YjItOTRjMC1iZWE0NzMzMDA3MTIiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJkb25uYS11aSIsInNlc3Npb25fc3RhdGUiOiJiYjhlOGYxMC02MmQwLTQzNWQtODY4OS1lZWUxZDMxNWE3ZWQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vZG9ubmEtZGV2Lm5vbi1wcm9kLXBlbi1nY3Aub21lcnMuY29tIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJPbWVyc0FkbWluaXN0cmF0b3JzIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIG9mZmxpbmVfYWNjZXNzIHByb2ZpbGUgZW1haWwiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJCb3JhIEJpbGdpbiIsInByZWZlcnJlZF91c2VybmFtZSI6ImJiaWxnaW5Ab21lcnMuY29tIiwiZ2l2ZW5fbmFtZSI6IkJvcmEiLCJmYW1pbHlfbmFtZSI6IkJpbGdpbiJ9.QOYIkOCzmS3QXXgaDVdii4zlaFjrIl98Uy4wT-HSBvWcx-BpkvEV_4eayfnoOd6hvQXdt_Vwu23CXBqhIyASBYDQxhGccVS4bwf32KGlcaniEj171vK_90o5KeXyG9CeK47FIVzW4M9aclIsrFWkjHyQ1UrbHAm2NouxaB6wl_bSFR0iVcAlau3_4xdJDVOqgYuMEUId13Y2Pz-_Bg9an64tDDKZKwWg_Vf7xli0jOaaFkFM3fREepmXz7yQsn4ksyJrv6jTftyMIc1nRka3Khgk9AuOdscFvIanedmWkqJ_jQSdj9-Ew64vmUxyRM7WBOUx7__QFAjezlgcl0caYw
+  base-path: "/"
+
+donna:
+  security:
+    enable: false
+

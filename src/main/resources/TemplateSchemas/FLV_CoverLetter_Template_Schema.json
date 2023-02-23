@@ -1,0 +1,118 @@
+{
+    "approvedBy": "Mr C",
+    "isActive": true,
+    "processId": "SAD",
+    "templateFields": [
+        {
+            "defaultValue": "",
+            "fieldName": "currentDate",
+            "fieldType": "DATE",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "recipientName",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "memberFirstName",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+             "defaultValue": "",
+             "fieldName": "memberLastName",
+             "fieldType": "STRING",
+             "isRequired": true  
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "memberNumber",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "address",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "address2",
+            "fieldType": "STRING",
+            "isRequired": false
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "city",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "provinceState",
+            "fieldType": "STRING",
+            "isRequired": false
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "postalZip",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "country",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "applicantType",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "spouseFirstName",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "spouseLastName",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "bussinessName",
+            "fieldType": "STRING",
+            "isRequired": false
+        },
+        {
+            "defaultValue": "",
+            "fieldName": "footerRefCode",
+            "fieldType": "STRING",
+            "isRequired": true
+        },
+        {
+            "defaultValue": false,
+            "fieldName": "rcaBenifit",
+            "fieldType": "BOOLEAN",
+            "isRequired": false
+        },
+        {
+            "defaultValue": false,
+            "fieldName": "multipleMembershipAVC",
+            "fieldType": "BOOLEAN",
+            "isRequired": false
+        }
+    ],
+    "templateName": "FLV_CoverLetter_Template",
+    "templateType": "HTML",
+    "version": 1
+}

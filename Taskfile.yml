@@ -1,0 +1,39 @@
+# https://taskfile.dev
+
+version: '2'
+
+vars:
+  PROJECT_NAME: dms-template
+
+tasks:
+  kafka:
+    desc: "Runs minimum number of services for kafka to function"
+    cmds:
+      - |
+        docker-compose -f src/main/docker/kafka.yml up \
+          --scale ksql-server=0 --scale ksql-cli=0 --scale ksql-datagen=0 --scale control-center=0 \
+          --scale rest-proxy=0 --scale connect=0
+
+  kafka_full:
+    desc: "Runs full Kafka"
+    cmds:
+      - docker-compose -f src/main/docker/kafka.yml up
+
+  db:
+    cmds:
+      - docker-compose -f src/main/docker/postgresql.yml up
+
+  cleanup:
+    desc: "Removes docker images data, sometimes it helps to fix startup issues"
+    cmds:
+      - docker-compose -f src/main/docker/kafka.yml down -v
+      - docker-compose -f src/main/docker/postgresql.yml down -v
+
+  dev_local:
+    desc: "Starts kafka and postgresql images"
+    cmds:
+      - |
+        docker-compose \
+          -f src/main/docker/kafka.yml \
+          -f src/main/docker/postgresql.yml \
+          up

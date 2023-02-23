@@ -1,0 +1,69 @@
+{"approvedBy": "Mr C",
+    "isActive": true,
+    "processId": "DMS-C",
+    "templateFields": [
+        {
+            "defaultValue": false,
+            "fieldName": "block1field1",
+            "fieldType": "BOOLEAN",
+            "isRequired": false
+        },
+        {
+            "defaultValue": false,
+            "fieldName": "block1field2",
+            "fieldType": "BOOLEAN",
+            "isRequired": false
+        },
+        {
+            "defaultValue": false,
+            "fieldName": "block1field3",
+            "fieldType": "BOOLEAN",
+            "isRequired": false
+        },
+        {
+            "defaultValue": false,
+            "fieldName": "block1field4",
+            "fieldType": "BOOLEAN",
+            "isRequired": false
+        },
+        {
+            "defaultValue": false,
+            "fieldName": "block1field5",
+            "fieldType": "BOOLEAN",
+            "isRequired": false
+        },
+        {
+            "defaultValue": false,
+            "fieldName": "block2field1",
+            "fieldType": "BOOLEAN",
+            "isRequired": false
+        },
+        {
+            "defaultValue": false,
+            "fieldName": "block2field2",
+            "fieldType": "BOOLEAN",
+            "isRequired": false
+        },
+        {
+            "defaultValue": false,
+            "fieldName": "block2field3",
+            "fieldType": "BOOLEAN",
+            "isRequired": false
+        },
+        {
+            "defaultValue": false,
+            "fieldName": "block3field1",
+            "fieldType": "BOOLEAN",
+            "isRequired": false
+        },
+        {
+            "defaultValue": false,
+            "fieldName": "block3field2",
+            "fieldType": "BOOLEAN",
+            "isRequired": false
+        }
+    ],
+    "templateName": "FLV_TransferChecklistInsert_Template",
+    "templateType": "HTML",
+    "version": 1
+}

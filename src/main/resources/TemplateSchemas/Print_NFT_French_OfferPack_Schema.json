@@ -1,0 +1,112 @@
+{"approvedBy": "MC",
+  "isActive": true,
+  "processId": "DMS-P",
+  "templateFields": [
+  {
+      "defaultValue": "",
+      "fieldName": "firstName",
+      "fieldType": "STRING",
+      "isRequired": true
+  },
+  {
+      "defaultValue": "",
+      "fieldName": "lastName",
+      "fieldType": "STRING",
+      "isRequired": true
+  },
+  {
+      "defaultValue": "",
+      "fieldName": "address",
+      "fieldType": "STRING",
+      "isRequired": true
+  },
+  {
+      "defaultValue": "",
+      "fieldName": "address2",
+      "fieldType": "STRING",
+      "isRequired": false
+  },
+  {
+      "defaultValue": "",
+      "fieldName": "apt_suite_unit",
+      "fieldType": "STRING",
+      "isRequired": false
+  },
+  {
+      "defaultValue": "",
+      "fieldName": "city",
+      "fieldType": "STRING",
+      "isRequired": true
+  },
+  {
+      "defaultValue": "",
+      "fieldName": "provinceState",
+      "fieldType": "STRING",
+      "isRequired": true
+  },
+  {
+      "defaultValue": "",
+      "fieldName": "postalZip",
+      "fieldType": "STRING",
+      "isRequired": true
+  },
+  {
+      "defaultValue": "",
+      "fieldName": "country",
+      "fieldType": "STRING",
+      "isRequired": true
+  },
+  {
+      "defaultValue": "",
+      "fieldName": "nftId",
+      "fieldType": "STRING",
+      "isRequired": true
+  },
+  {
+      "defaultValue": "",
+      "fieldName": "employer_name",
+      "fieldType": "STRING",
+      "isRequired": true
+  },
+  {
+      "defaultValue": "",
+      "fieldName": "eligible_participation_date",
+      "fieldType": "STRING",
+      "isRequired": false
+  },
+  {
+      "defaultValue": "",
+      "fieldName": "membership_form_submission_date",
+      "fieldType": "STRING",
+      "isRequired": false
+  },
+  {
+      "defaultValue": "",
+      "fieldName": "possibleEarlyEnrolmentFlag",
+      "fieldType": "BOOLEAN",
+      "isRequired": true
+  },
+  {
+      "defaultValue": "",
+      "fieldName": "nftMatchFlag",
+      "fieldType": "BOOLEAN",
+      "isRequired": true
+  },
+  {
+      "defaultValue": "",
+      "fieldName": "activeMemberMatchFlag",
+      "fieldType": "BOOLEAN",
+      "isRequired": true
+  },
+  {
+      "defaultValue": "",
+      "fieldName": "deferredMemberMatchFlag",
+      "fieldType": "BOOLEAN",
+      "isRequired": true
+  }
+
+  ],
+  "templateName": "NFTEmail",
+  "templateType": "HTML",
+  "version": 1
+}

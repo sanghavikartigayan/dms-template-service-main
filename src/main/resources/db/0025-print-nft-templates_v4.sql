@@ -1,0 +1,455 @@
+update dmstemplate.template SET template_data = '<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            section {
+                display: block;
+                margin: 0 auto;
+                padding: 0;
+            }
+            section[size="A4"] {
+                width: 8.5in;
+                height: 11in;
+            }
+            @page {
+                size: 215.9mm 279.4mm;
+                margin:0;
+            }
+            section > #margins {
+                max-width: 100%;
+                display: block;
+                padding-left: 35mm;
+                padding-top: 65mm;
+            }
+            #margins > #content {
+                display:block;
+                font-size: 11pt;
+                font-family: Arial, Helvetica, sans-serif;
+                width: 80mm;
+                height: 30mm;
+            }
+            .bold {
+                font-weight: bold;
+            }
+            #printId {
+                font-size: 9pt;
+            }
+            .content > img {
+                position: relative;
+                top: 0;
+                left: 0;
+                width: 8.5in;
+                height: 10.95in;
+            }
+            .pageHeader{
+                padding-top: 10.9mm;
+                padding-bottom: 20px;
+                display:inline-block;
+                width:100%;
+            }
+            .headerLeft{
+                float:left;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            section > .horizontalMargins {
+                padding-left:25.4mm;
+                width:165.1mm;
+                display: block;
+            }
+            .content {
+                font-size: 11pt;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .underline {
+                text-decoration: underline;
+            }
+            .subHeader {
+                display: inline-block;
+                width: 172.3mm;
+                margin-top:25px;
+                margin-bottom:30px;
+                font-size: 16pt;
+                color: #2F5596;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .page-break {
+                display: block;
+                page-break-after: always;
+            }
+        </style>
+    </head>
+    </head>
+    <body>
+        <section size="A4">
+            <span id="margins">
+                <span id="content">
+                    <span id="printId"></span><br><br>
+                    <span>${firstName?upper_case} ${lastName?upper_case}</span><br>
+                    <span>${address?upper_case}</span><br>
+                    <#if apt_suite_unit?has_content>
+                    <span>${apt_suite_unit?upper_case}</span><br>
+                    </#if>
+                    <#if address2?has_content>
+                    <span>${address2?upper_case}</span><br>
+                    </#if>
+                    <span>${city?upper_case} ${provinceState?upper_case}  ${postalZip?upper_case}</span><br>
+                    <span>${country?upper_case}</span>
+                </span>
+            </span>
+        </section>
+        <section size="A4"></section>
+        <section size="A4" style="height: 100%; box-sizing: border-box;">
+            <span class="horizontalMargins">
+                <div class="pageHeader">
+                    <span class="headerLeft"><img src="OMERS_LOGO_TRANSPARENT_BACKGROUND" width=''150''  alt="OMERS"/></span>
+                </div>
+                <div class="subHeader">Vous êtes admissibles à participer au régime d’OMERS</div>
+                <span class="content">
+                    <div>Bonjour ${firstName},</div><br>
+                    <div>Nous avons le plaisir de vous informer qu’en raison de votre emploi chez ${employer_name}, vous êtes admissibles au régime de retraite principal d’OMERS (le régime d’OMERS), soit une retraite à prestations déterminées comptant plus d’un demi-million de participant(e)s et plus de 1,000 employeurs membres dans tout l’Ontario.</div><br>
+                    <div>Pour vous aider à en savoir plus sur les caractéristiques du régime d’OMERS, nous avons joint une copie du tout dernier <span class="bold">Guide du participant d''OMERS.</span> Nous vous encourageons à l’examiner attentivement et à consulter le site <span>omers.com</span> pour en savoir plus.</div><br>
+                    <div>Nous avons également joint un formulaire d’<span class="bold">offre de participation au régime d’OMERS. Veuillez remplir et signer ce formulaire et le retourner à votre employeur</span>. Il est important de remplir ce formulaire même si vous décidez de <span class="underline">ne pas</span> participer au régime, car votre employeur doit obtenir une preuve de votre décision.</div><br>
+                    <div>Si vous choisissez d’y participer, votre adhésion au régime d’OMERS prendra effet au cours de la période de paie disponible de votre employeur qui suit la réception de votre choix. Cette date peut être au plus tard à la fin du mois suivant le mois au cours duquel le choix est reçu.</div><br>
+                    <div>Si vous choisissez de ne pas y participer à l’heure actuelle, vous pourrez tout de même adhérer ultérieurement si vous êtes employé(e) par un employeur d’OMERS. Dans ce cas, communiquez avec votre employeur pour commencer votre adhésion.</div><br>
+
+                    <#if possibleEarlyEnrolmentFlag==true>
+                    <div class="bold underline">Vous avez la possibilité d’y adhérer plus tôt</div><br>
+                    <div>Nos dossiers indiquent que vous étiez admissible à participer au régime d’OMERS en date du ${eligible_participation_date}.</div><br>
+                    <div>Si vous souhaitez devenir membre à cette date anticipée, vous avez la possibilité de verser les cotisations que vous auriez versées pendant cette période et votre employeur versera une somme équivalente. Pour faire ce choix, veuillez soumettre votre formulaire d’offre de participation au régime d’OMERS dûment rempli à votre employeur d’ici le ${membership_form_submission_date}. Une fois votre choix reçu et que nous aurons recueilli des renseignements supplémentaires auprès de votre employeur, OMERS vous enverra plus de détails, y compris le coût des cotisations.</div><br>
+                    <div>Si vous soumettez votre formulaire d’offre de participation au régime d’OMERS dûment rempli <span class="bold">après</span> le ${membership_form_submission_date}, vous <span class="underline">renoncez à votre droit de profiter de cette date de participation anticipée et à la possibilité pour votre employeur de verser une cotisation équivalente à la vôtre pour cette période antérieure.</span> Le temps écoulé entre votre date d’adhésion et votre date de participation anticipée sera considéré comme un service validable dans le cadre du régime d’OMERS. Il se peut que vous puissiez acheter cette période à une date ultérieure sous forme de rachat à vos frais. Ce coût est souvent plus élevé que celui de vos cotisations régulières. Pour en savoir plus sur le service validable et les rachats, veuillez consulter le Guide du participant d''OMERS.</div><br>
+                    </#if>
+
+                    <#if (
+                        (possibleEarlyEnrolmentFlag==true && nftMatchFlag==true && activeMemberMatchFlag==false && deferredMemberMatchFlag==false)
+                        ||
+                        (possibleEarlyEnrolmentFlag==true && nftMatchFlag==true && activeMemberMatchFlag==false && deferredMemberMatchFlag==true)
+                        ||
+                        (possibleEarlyEnrolmentFlag==true && nftMatchFlag==true && activeMemberMatchFlag==true && deferredMemberMatchFlag==false)
+                        ||
+                        (possibleEarlyEnrolmentFlag==true && nftMatchFlag==true && activeMemberMatchFlag==true && deferredMemberMatchFlag==true)
+                    )>
+                    <div class="page-break"></div>
+                    <div class="pageHeader">
+                        <span class="headerLeft"><img src="OMERS_LOGO_TRANSPARENT_BACKGROUND" width=''150''  alt="OMERS"/></span>
+                    </div>
+                    </#if>
+
+                    <#if nftMatchFlag==true>
+                    <div class="bold underline">Pourquoi est-ce que je reçois plusieurs trousses?</div><br>
+                    <div>Dans le cadre de cette offre d’adhésion, vous avez plusieurs occasions de vous inscrire au régime d’OMERS parce que vous occupez plus d’un poste chez des employeurs d’OMERS (ou au sein d’un employeur d’OMERS). Par conséquent, vous pouvez vous attendre à recevoir plusieurs trousses d’adhésion.</div><br>
+                    <div>Si vous choisissez d’adhérer dans le cas de plus d’un poste chez votre ou vos employeurs d’OMERS, chacune de vos participations sera traitée séparément et, par conséquent, votre rente sera calculée séparément (c.-à-d., les gains et le service validé de chaque poste ne s’appliqueront qu’à cette adhésion aux fins du calcul de votre rente d’OMERS). La période de service auprès de tous vos employeurs d’OMERS peut être prise en compte lors de la détermination de votre rente de retraite anticipée.</div><br>
+                    </#if>
+
+                    <#if (
+                        (possibleEarlyEnrolmentFlag==true && nftMatchFlag==false && activeMemberMatchFlag==true && deferredMemberMatchFlag==true)
+                        ||
+                        (possibleEarlyEnrolmentFlag==false && nftMatchFlag==false && activeMemberMatchFlag==true && deferredMemberMatchFlag==true)
+                        ||
+                        (possibleEarlyEnrolmentFlag==false && nftMatchFlag==true && activeMemberMatchFlag==false && deferredMemberMatchFlag==true)
+                        ||
+                        (possibleEarlyEnrolmentFlag==true && nftMatchFlag==false && activeMemberMatchFlag==true && deferredMemberMatchFlag==false)
+                        ||
+                        (possibleEarlyEnrolmentFlag==true && nftMatchFlag==false && activeMemberMatchFlag==false && deferredMemberMatchFlag==true)
+                    )>
+                    <div class="page-break"></div>
+                    <div class="pageHeader">
+                        <span class="headerLeft"><img src="OMERS_LOGO_TRANSPARENT_BACKGROUND" width=''150''  alt="OMERS"/></span>
+                    </div>
+                    </#if>
+
+                    <#if activeMemberMatchFlag==true>
+                    <div class="bold underline">Je participe déjà au régime</div><br>
+                    <div>En tant que participant existant d’OMERS, si vous choisissez de participer dans la cadre d’un autre poste, votre participation supplémentaire est traitée séparément et, par conséquent, votre rente est calculée séparément (c.-à-d., les gains et le service validé de chaque poste ne s’appliqueront qu’à cette participation). La période de service auprès de tous vos employeurs d’OMERS peut être prise en compte lors de la détermination de votre rente de retraite anticipée.</div><br>
+                    </#if>
+
+                    <#if (
+                        (possibleEarlyEnrolmentFlag==false && nftMatchFlag==true && activeMemberMatchFlag==true && deferredMemberMatchFlag==true)
+                    )>
+                    <div class="page-break"></div>
+                    <div class="pageHeader">
+                        <span class="headerLeft"><img src="OMERS_LOGO_TRANSPARENT_BACKGROUND" width=''150''  alt="OMERS"/></span>
+                    </div>
+                    </#if>
+
+                    <#if deferredMemberMatchFlag==true>
+                    <div class="bold underline">J’ai une rente différée d’OMERS</div><br>
+                    <div>En tant que participant d’OMERS à rente différée qui a conservé sa rente dans le régime d’OMERS, si vous choisissez de participer à nouveau au régime d’OMERS en tant que participant actif dans le cadre de votre emploi actuel, votre ancienne participation à OMERS et cette nouvelle participation peuvent être combinées en une seule participation.</div><br>
+                    <div>Si vous remplissez les conditions pour que vos participations soient fusionnées, OMERS effectuera automatiquement cette transaction pour votre compte. Dans ce cas, la participation combinée est traitée comme une seule participation. Cela signifie que la rémunération et le service pour vos périodes distinctes de participation au régime d’OMERS seront pris en compte ensemble pour déterminer votre rente combinée d’OMERS au moment de votre retraite.</div><br>
+                    </#if>
+
+                    <#if (
+                        (possibleEarlyEnrolmentFlag==false && nftMatchFlag==true && activeMemberMatchFlag==true && deferredMemberMatchFlag==false)
+                        ||
+                        (possibleEarlyEnrolmentFlag==true && nftMatchFlag==false && activeMemberMatchFlag==false && deferredMemberMatchFlag==false)
+                    )>
+                    <div class="page-break"></div>
+                    <div class="pageHeader">
+                        <span class="headerLeft"><img src="OMERS_LOGO_TRANSPARENT_BACKGROUND" width=''150''  alt="OMERS"/></span>
+                    </div>
+                    </#if>
+
+                    <div>Consultez le site <span class="bold">https://www.omers.com/nft-fr</span> pour en savoir plus sur les avantages offerts par la participation, la procédure d’adhésion et la façon dont le régime d’OMERS fonctionne, qui vous permet de bénéficier d’une sécurité financière à la retraite.</div><br>
+                    <div>Vous pouvez également communiquer avec l’équipe de l’Expérience des participants d’OMERS pour obtenir des réponses à vos questions par téléphone du lundi au vendredi, de 8 h à 17 h, au 416 369-2445 ou au 1 855 669-2445.</div><br>
+                    <div>Cordialement,<br>OMERS</div>
+
+                    <#if (
+                        (possibleEarlyEnrolmentFlag==false && nftMatchFlag==false && activeMemberMatchFlag==false && deferredMemberMatchFlag==false)
+                        ||
+                        (possibleEarlyEnrolmentFlag==false && nftMatchFlag==false && activeMemberMatchFlag==false && deferredMemberMatchFlag==true)
+                        ||
+                        (possibleEarlyEnrolmentFlag==false && nftMatchFlag==false && activeMemberMatchFlag==true && deferredMemberMatchFlag==false)
+                        ||
+                        (possibleEarlyEnrolmentFlag==false && nftMatchFlag==true && activeMemberMatchFlag==false && deferredMemberMatchFlag==false)
+                    )>
+                    <section size="A4"></section>
+                    </#if>
+                </span>
+            </span>
+        </section>
+        <section size="A4">
+            <span class="content">
+                <img src="https://images.ctfassets.net/iifcbkds7nke/2wVGmnVoVjMFpdwc5xgpKj/740170958dfb23a4ed09b7a70d13a356/104_fr-1.png"
+                alt="Page1" title="Page1">
+            </span>
+        </section>
+        <section size="A4">
+            <span class="content">
+                <img src="https://images.ctfassets.net/iifcbkds7nke/7n5V7QSRCcngkl5hzYocPZ/12e1acfa48fdb07c17de5bffb094ad7d/104_fr-2.png"
+                alt="Page2" title="Page2">
+            </span>
+        </section>
+    </body>
+</html>' where template_id = '6ffd6a5a-198e-11ed-861d-0242ac120020';
+
+update dmstemplate.template_history SET template_data = '<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            section {
+                display: block;
+                margin: 0 auto;
+                padding: 0;
+            }
+            section[size="A4"] {
+                width: 8.5in;
+                height: 11in;
+            }
+            @page {
+                size: 215.9mm 279.4mm;
+                margin:0;
+            }
+            section > #margins {
+                max-width: 100%;
+                display: block;
+                padding-left: 35mm;
+                padding-top: 65mm;
+            }
+            #margins > #content {
+                display:block;
+                font-size: 11pt;
+                font-family: Arial, Helvetica, sans-serif;
+                width: 80mm;
+                height: 30mm;
+            }
+            .bold {
+                font-weight: bold;
+            }
+            #printId {
+                font-size: 9pt;
+            }
+            .content > img {
+                position: relative;
+                top: 0;
+                left: 0;
+                width: 8.5in;
+                height: 10.95in;
+            }
+            .pageHeader{
+                padding-top: 10.9mm;
+                padding-bottom: 20px;
+                display:inline-block;
+                width:100%;
+            }
+            .headerLeft{
+                float:left;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            section > .horizontalMargins {
+                padding-left:25.4mm;
+                width:165.1mm;
+                display: block;
+            }
+            .content {
+                font-size: 11pt;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .underline {
+                text-decoration: underline;
+            }
+            .subHeader {
+                display: inline-block;
+                width: 172.3mm;
+                margin-top:25px;
+                margin-bottom:30px;
+                font-size: 16pt;
+                color: #2F5596;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .page-break {
+                display: block;
+                page-break-after: always;
+            }
+        </style>
+    </head>
+    </head>
+    <body>
+        <section size="A4">
+            <span id="margins">
+                <span id="content">
+                    <span id="printId"></span><br><br>
+                    <span>${firstName?upper_case} ${lastName?upper_case}</span><br>
+                    <span>${address?upper_case}</span><br>
+                    <#if apt_suite_unit?has_content>
+                    <span>${apt_suite_unit?upper_case}</span><br>
+                    </#if>
+                    <#if address2?has_content>
+                    <span>${address2?upper_case}</span><br>
+                    </#if>
+                    <span>${city?upper_case} ${provinceState?upper_case}  ${postalZip?upper_case}</span><br>
+                    <span>${country?upper_case}</span>
+                </span>
+            </span>
+        </section>
+        <section size="A4"></section>
+        <section size="A4" style="height: 100%; box-sizing: border-box;">
+            <span class="horizontalMargins">
+                <div class="pageHeader">
+                    <span class="headerLeft"><img src="OMERS_LOGO_TRANSPARENT_BACKGROUND" width=''150''  alt="OMERS"/></span>
+                </div>
+                <div class="subHeader">Vous êtes admissibles à participer au régime d’OMERS</div>
+                <span class="content">
+                    <div>Bonjour ${firstName},</div><br>
+                    <div>Nous avons le plaisir de vous informer qu’en raison de votre emploi chez ${employer_name}, vous êtes admissibles au régime de retraite principal d’OMERS (le régime d’OMERS), soit une retraite à prestations déterminées comptant plus d’un demi-million de participant(e)s et plus de 1,000 employeurs membres dans tout l’Ontario.</div><br>
+                    <div>Pour vous aider à en savoir plus sur les caractéristiques du régime d’OMERS, nous avons joint une copie du tout dernier <span class="bold">Guide du participant d''OMERS.</span> Nous vous encourageons à l’examiner attentivement et à consulter le site <span>omers.com</span> pour en savoir plus.</div><br>
+                    <div>Nous avons également joint un formulaire d’<span class="bold">offre de participation au régime d’OMERS. Veuillez remplir et signer ce formulaire et le retourner à votre employeur</span>. Il est important de remplir ce formulaire même si vous décidez de <span class="underline">ne pas</span> participer au régime, car votre employeur doit obtenir une preuve de votre décision.</div><br>
+                    <div>Si vous choisissez d’y participer, votre adhésion au régime d’OMERS prendra effet au cours de la période de paie disponible de votre employeur qui suit la réception de votre choix. Cette date peut être au plus tard à la fin du mois suivant le mois au cours duquel le choix est reçu.</div><br>
+                    <div>Si vous choisissez de ne pas y participer à l’heure actuelle, vous pourrez tout de même adhérer ultérieurement si vous êtes employé(e) par un employeur d’OMERS. Dans ce cas, communiquez avec votre employeur pour commencer votre adhésion.</div><br>
+
+                    <#if possibleEarlyEnrolmentFlag==true>
+                    <div class="bold underline">Vous avez la possibilité d’y adhérer plus tôt</div><br>
+                    <div>Nos dossiers indiquent que vous étiez admissible à participer au régime d’OMERS en date du ${eligible_participation_date}.</div><br>
+                    <div>Si vous souhaitez devenir membre à cette date anticipée, vous avez la possibilité de verser les cotisations que vous auriez versées pendant cette période et votre employeur versera une somme équivalente. Pour faire ce choix, veuillez soumettre votre formulaire d’offre de participation au régime d’OMERS dûment rempli à votre employeur d’ici le ${membership_form_submission_date}. Une fois votre choix reçu et que nous aurons recueilli des renseignements supplémentaires auprès de votre employeur, OMERS vous enverra plus de détails, y compris le coût des cotisations.</div><br>
+                    <div>Si vous soumettez votre formulaire d’offre de participation au régime d’OMERS dûment rempli <span class="bold">après</span> le ${membership_form_submission_date}, vous <span class="underline">renoncez à votre droit de profiter de cette date de participation anticipée et à la possibilité pour votre employeur de verser une cotisation équivalente à la vôtre pour cette période antérieure.</span> Le temps écoulé entre votre date d’adhésion et votre date de participation anticipée sera considéré comme un service validable dans le cadre du régime d’OMERS. Il se peut que vous puissiez acheter cette période à une date ultérieure sous forme de rachat à vos frais. Ce coût est souvent plus élevé que celui de vos cotisations régulières. Pour en savoir plus sur le service validable et les rachats, veuillez consulter le Guide du participant d''OMERS.</div><br>
+                    </#if>
+
+                    <#if (
+                        (possibleEarlyEnrolmentFlag==true && nftMatchFlag==true && activeMemberMatchFlag==false && deferredMemberMatchFlag==false)
+                        ||
+                        (possibleEarlyEnrolmentFlag==true && nftMatchFlag==true && activeMemberMatchFlag==false && deferredMemberMatchFlag==true)
+                        ||
+                        (possibleEarlyEnrolmentFlag==true && nftMatchFlag==true && activeMemberMatchFlag==true && deferredMemberMatchFlag==false)
+                        ||
+                        (possibleEarlyEnrolmentFlag==true && nftMatchFlag==true && activeMemberMatchFlag==true && deferredMemberMatchFlag==true)
+                    )>
+                    <div class="page-break"></div>
+                    <div class="pageHeader">
+                        <span class="headerLeft"><img src="OMERS_LOGO_TRANSPARENT_BACKGROUND" width=''150''  alt="OMERS"/></span>
+                    </div>
+                    </#if>
+
+                    <#if nftMatchFlag==true>
+                    <div class="bold underline">Pourquoi est-ce que je reçois plusieurs trousses?</div><br>
+                    <div>Dans le cadre de cette offre d’adhésion, vous avez plusieurs occasions de vous inscrire au régime d’OMERS parce que vous occupez plus d’un poste chez des employeurs d’OMERS (ou au sein d’un employeur d’OMERS). Par conséquent, vous pouvez vous attendre à recevoir plusieurs trousses d’adhésion.</div><br>
+                    <div>Si vous choisissez d’adhérer dans le cas de plus d’un poste chez votre ou vos employeurs d’OMERS, chacune de vos participations sera traitée séparément et, par conséquent, votre rente sera calculée séparément (c.-à-d., les gains et le service validé de chaque poste ne s’appliqueront qu’à cette adhésion aux fins du calcul de votre rente d’OMERS). La période de service auprès de tous vos employeurs d’OMERS peut être prise en compte lors de la détermination de votre rente de retraite anticipée.</div><br>
+                    </#if>
+
+                    <#if (
+                        (possibleEarlyEnrolmentFlag==true && nftMatchFlag==false && activeMemberMatchFlag==true && deferredMemberMatchFlag==true)
+                        ||
+                        (possibleEarlyEnrolmentFlag==false && nftMatchFlag==false && activeMemberMatchFlag==true && deferredMemberMatchFlag==true)
+                        ||
+                        (possibleEarlyEnrolmentFlag==false && nftMatchFlag==true && activeMemberMatchFlag==false && deferredMemberMatchFlag==true)
+                        ||
+                        (possibleEarlyEnrolmentFlag==true && nftMatchFlag==false && activeMemberMatchFlag==true && deferredMemberMatchFlag==false)
+                        ||
+                        (possibleEarlyEnrolmentFlag==true && nftMatchFlag==false && activeMemberMatchFlag==false && deferredMemberMatchFlag==true)
+                    )>
+                    <div class="page-break"></div>
+                    <div class="pageHeader">
+                        <span class="headerLeft"><img src="OMERS_LOGO_TRANSPARENT_BACKGROUND" width=''150''  alt="OMERS"/></span>
+                    </div>
+                    </#if>
+
+                    <#if activeMemberMatchFlag==true>
+                    <div class="bold underline">Je participe déjà au régime</div><br>
+                    <div>En tant que participant existant d’OMERS, si vous choisissez de participer dans la cadre d’un autre poste, votre participation supplémentaire est traitée séparément et, par conséquent, votre rente est calculée séparément (c.-à-d., les gains et le service validé de chaque poste ne s’appliqueront qu’à cette participation). La période de service auprès de tous vos employeurs d’OMERS peut être prise en compte lors de la détermination de votre rente de retraite anticipée.</div><br>
+                    </#if>
+
+                    <#if (
+                        (possibleEarlyEnrolmentFlag==false && nftMatchFlag==true && activeMemberMatchFlag==true && deferredMemberMatchFlag==true)
+                    )>
+                    <div class="page-break"></div>
+                    <div class="pageHeader">
+                        <span class="headerLeft"><img src="OMERS_LOGO_TRANSPARENT_BACKGROUND" width=''150''  alt="OMERS"/></span>
+                    </div>
+                    </#if>
+
+                    <#if deferredMemberMatchFlag==true>
+                    <div class="bold underline">J’ai une rente différée d’OMERS</div><br>
+                    <div>En tant que participant d’OMERS à rente différée qui a conservé sa rente dans le régime d’OMERS, si vous choisissez de participer à nouveau au régime d’OMERS en tant que participant actif dans le cadre de votre emploi actuel, votre ancienne participation à OMERS et cette nouvelle participation peuvent être combinées en une seule participation.</div><br>
+                    <div>Si vous remplissez les conditions pour que vos participations soient fusionnées, OMERS effectuera automatiquement cette transaction pour votre compte. Dans ce cas, la participation combinée est traitée comme une seule participation. Cela signifie que la rémunération et le service pour vos périodes distinctes de participation au régime d’OMERS seront pris en compte ensemble pour déterminer votre rente combinée d’OMERS au moment de votre retraite.</div><br>
+                    </#if>
+
+                    <#if (
+                        (possibleEarlyEnrolmentFlag==false && nftMatchFlag==true && activeMemberMatchFlag==true && deferredMemberMatchFlag==false)
+                        ||
+                        (possibleEarlyEnrolmentFlag==true && nftMatchFlag==false && activeMemberMatchFlag==false && deferredMemberMatchFlag==false)
+                    )>
+                    <div class="page-break"></div>
+                    <div class="pageHeader">
+                        <span class="headerLeft"><img src="OMERS_LOGO_TRANSPARENT_BACKGROUND" width=''150''  alt="OMERS"/></span>
+                    </div>
+                    </#if>
+
+                    <div>Consultez le site <span class="bold">https://www.omers.com/nft-fr</span> pour en savoir plus sur les avantages offerts par la participation, la procédure d’adhésion et la façon dont le régime d’OMERS fonctionne, qui vous permet de bénéficier d’une sécurité financière à la retraite.</div><br>
+                    <div>Vous pouvez également communiquer avec l’équipe de l’Expérience des participants d’OMERS pour obtenir des réponses à vos questions par téléphone du lundi au vendredi, de 8 h à 17 h, au 416 369-2445 ou au 1 855 669-2445.</div><br>
+                    <div>Cordialement,<br>OMERS</div>
+
+                    <#if (
+                        (possibleEarlyEnrolmentFlag==false && nftMatchFlag==false && activeMemberMatchFlag==false && deferredMemberMatchFlag==false)
+                        ||
+                        (possibleEarlyEnrolmentFlag==false && nftMatchFlag==false && activeMemberMatchFlag==false && deferredMemberMatchFlag==true)
+                        ||
+                        (possibleEarlyEnrolmentFlag==false && nftMatchFlag==false && activeMemberMatchFlag==true && deferredMemberMatchFlag==false)
+                        ||
+                        (possibleEarlyEnrolmentFlag==false && nftMatchFlag==true && activeMemberMatchFlag==false && deferredMemberMatchFlag==false)
+                    )>
+                    <section size="A4"></section>
+                    </#if>
+                </span>
+            </span>
+        </section>
+        <section size="A4">
+            <span class="content">
+                <img src="https://images.ctfassets.net/iifcbkds7nke/2wVGmnVoVjMFpdwc5xgpKj/740170958dfb23a4ed09b7a70d13a356/104_fr-1.png"
+                alt="Page1" title="Page1">
+            </span>
+        </section>
+        <section size="A4">
+            <span class="content">
+                <img src="https://images.ctfassets.net/iifcbkds7nke/7n5V7QSRCcngkl5hzYocPZ/12e1acfa48fdb07c17de5bffb094ad7d/104_fr-2.png"
+                alt="Page2" title="Page2">
+            </span>
+        </section>
+    </body>
+</html>' where audit_id = 'b059f61a-e9ff-4543-b6c8-9c4e63279635';

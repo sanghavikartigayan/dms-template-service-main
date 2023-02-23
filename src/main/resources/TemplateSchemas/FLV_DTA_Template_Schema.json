@@ -1,0 +1,268 @@
+{
+  "approvedBy": "Mr C",
+  "isActive": true,
+  "processId": "SAD",
+  "templateFields": [
+    {
+      "defaultValue": "",
+      "fieldName": "socialInsuranceNumber",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "dateOfBirth",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "isMr",
+      "fieldType": "BOOLEAN",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "isMrs",
+      "fieldType": "BOOLEAN",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "isMs",
+      "fieldType": "BOOLEAN",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "isOther",
+      "fieldType": "BOOLEAN",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "firstName",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "middleName",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "lastName",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section1Apt",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section1Address",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section1City",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section1Province",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section1PostalCode",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "homeNumber",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "mobileNumber",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "email",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "isRegPensionPlan",
+      "fieldType": "BOOLEAN",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "nameOfPensionPlan",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section2Address1",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section2City1",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section2Province1",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section2PostalCode1",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section2Phone",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "provincialOrFederalRegNumber",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "ccraRegNumber",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "isRRSPorLIRA",
+      "fieldType": "BOOLEAN",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "nameOfFinancialInstitution",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "rrspOrLiraAcoountNumber",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section2Address2",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section2City2",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section2Province2",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section2PostalCode2",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "isAnnuity",
+      "fieldType": "BOOLEAN",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "nameOfInsuranceCompany",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section2Address3",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section2City3",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section2Province3",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section2PostalCode3",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section3TerminationDate",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section4AdministratorName",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section4NameOfFinancialInstitution",
+      "fieldType": "STRING",
+      "isRequired": false
+    },
+    {
+      "defaultValue": "",
+      "fieldName": "section4applicantName",
+      "fieldType": "STRING",
+      "isRequired": false
+    }
+  ],
+  "templateName": "FLV_DTA_Template",
+  "templateType": "HTML",
+  "version": 1
+}

@@ -1,0 +1,15 @@
+[
+    {
+      "fieldName": "technicalExceptions",
+      "fieldType": "ARRAY",
+      "isRequired": true,
+      "defaultValue": ""
+    },
+    {
+      "fieldName": "validationExceptions",
+      "fieldType": "ARRAY",
+      "isRequired": true,
+      "defaultValue": ""
+    }
+  ]
+  

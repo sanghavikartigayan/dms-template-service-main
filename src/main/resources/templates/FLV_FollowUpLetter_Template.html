@@ -1,0 +1,110 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	
+<head>
+<#include "pensionsHeader.ftl">
+<#include "pensionsFooter.ftl">
+</head>
+    <body>
+        
+          <div id="content">
+            <p>${currentDate?date?string('MMMM dd, yyyy')}</p>
+
+            <p><#if applicantType == 'LFS' || applicantType == 'LM'>${recipientName}</#if>
+				<#if applicantType == 'M'>${memberName}</#if>
+				<#if applicantType == 'FS'>${spouseName}</#if><br/>
+            ${address}<br/>
+            <#if address2?has_content>
+            ${address2}<br/>
+            </#if>
+            ${city} <#if ProvinceState?has_content> ${provinceState}</#if> ${postalZip}<br/>
+            ${country}</p>
+            
+            <p>Dear <#if applicantType == 'LFS' || applicantType == 'LM'>${recipientName}</#if>
+				<#if applicantType == 'M'>${memberName}</#if>
+				<#if applicantType == 'FS'>${spouseName}</#if>:</p>
+            
+            <h3 class="h3Style">
+                <div class="inlineBlock">
+                <span class="spanLeftMarginRight">
+                Re:	</span>
+                <span class="spanLeft">
+                Application for Family Law Value (FLV)<br/>
+				<#if applicantType != 'M'>${memberName}<br/></#if>
+                Membership number: ${memberNumber}</span>
+            </div>
+            </h3>
+            <hr class="marginTop0"/>
+			
+			<p>This is to confirm receipt of the documents relating to your Application for Family Law Value on ${receivedDate?date?string('MMMM dd, yyyy')}.
+			<#if applicantType == 'LFS'>Your client, ${spouseName}, has identified you as their contact person to receive these materials. </#if>
+			<#if applicantType == 'LM'>Your client, ${memberName}, has identified you as their contact person to receive these materials.</#if></p>
+			
+			<p>Upon review of the material submitted, we found the application is incomplete.</p>
+			
+			
+			<p><h4>Action required</h4></p>
+			
+			<p>To proceed, please send the item(s) listed below to OMERS:</p>
+			
+			<ul>
+			
+
+				<#if spouseDobNotVerified == true && applicantType == 'FS'>
+                <li>
+                    <p>A legible copy of your proof of age.</p>
+                </li>
+                </#if>
+
+				<#if spouseDobNotVerified == true &&  applicantType != 'FS'>
+                <li>
+                    <p>A legible copy of ${spouseName}’s proof of age.</p>
+                </li>
+                </#if>
+                <#if flvInfoMissing == true>
+                <li>
+                    <p>A completed <i>Application for Family Law Value</i> available on <i>www.fsrao.ca</i></p>
+                </li>
+                </#if>
+				<#if startDateProofNotProvided == true>
+                <li>
+                    <p>Proof of the start date of the spousal relationship (e.g., Appendix A – Joint Declaration of Period of Spousal Relationship; a certified copy of your marriage certificate; certified copy of a court order; family arbitration award or domestic contract).</p>
+                </li>
+                </#if>
+				<#if separationDateProofNotProvided == true>
+                <li>
+                    <p>Proof of the separation date (e.g., Appendix A – Joint Declaration of Period of Spousal Relationship; Appendix B – Request for Two Family Law Values; a certified copy of a court order; family arbitration award or domestic contract).</p>
+                </li>
+                </#if>
+                <#if applicationFeeRequired == true>
+                <li>
+                    <p>Application fee of $600.00 (OMERS offers one statement at no cost per membership).</p>
+                </li>
+                </#if>
+				
+			
+			
+			
+			</ul>
+			
+			<#if startDateProofNotProvided == true>
+			<p>A certified copy is a copy of the original document that has been verified as being a true copy of said document by a lawyer, commissioner of oaths or notary public.</p>
+			</#if>
+			
+			<p>The Statement of Family Law Value will be provided within 60 days of receipt of the completed application and applicable documents.</p>
+			
+			
+            <p><h4>We’re here to help</h4></p>
+            <p>If you have questions please call Member Experience at +1 416.369.2444 or +1 800.387.0813, Monday to Friday between 8 a.m. and 5 p.m.
+			<#if applicantType == 'M'>
+			You can also start a conversation using our secure communication channel in your myOMERS account.  To allow us to serve you better, please quote the membership number shown above.
+			</#if>
+			<#if applicantType != 'M'>
+			You can also submit a question using our third-party contact form on omers.com. To allow us to serve you better, please quote the reference number shown above. 
+			</#if>
+			</p>
+            <p>Regards,<br/>
+            Member Experience</p>
+        </div>
+	</body>
+</html>

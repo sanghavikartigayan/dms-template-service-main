@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      lang="" xml:lang="">
+<head>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+
+        @page {
+            size: letter;
+            margin-left: 11mm;
+            margin-right: 11mm;
+            margin-bottom: 3mm;
+            margin-top: 11mm;
+        }
+
+        .checkmark {
+            top: 0px;
+            position: relative;
+            transform: scale(1.5);
+        }
+
+        @media print {
+            div {
+                page-break-inside: avoid;
+            }
+        }
+
+        body {
+            line-height: 12px;
+            font-size: 8pt;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .footer {
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #000000;
+        }
+
+        input {
+            border: none;
+        }
+
+        table, td, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td {
+            height: 29px;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .heading {
+            width: 100%;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            padding: 3px;
+        }
+
+        .title {
+           /* font-weight: bold;*/
+            font-size: 30px;
+        }
+
+        .div-footer {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div id="page1-div" style="position:relative;width:100%;height:980px;">
+    <div style="position: relative; width: 100%; height: 57px"><img
+            src="OMERS_PAGE_LOGO_BW"
+            style="position: absolute;height: 38pt;top: 0pt;"></div>
+
+    <div style="position: relative; width: 100%; height: 38px "><span class="title">Direction to administrator</span>
+        <p style="position: relative; padding-top:8px; font-size: 13px">required <i>Pension Benefits Act</i> form for a locked-in commuted value
+            transfer</p>
+    </div>
+    <div style="position:relative; height: 114px; padding-top: 17px; padding-bottom: 13px;">
+        <div style="position:relative;width: 49%; float: left">
+            <p><b>Use this Ontario <i>Pension Benefits Act</i> (PBA) form to transfer the commuted value of your OMERS
+                benefit to a locked-in RRSP, LIRA, annuity or registered pension plan (RPP).</b></p>
+            <p style="padding-top: 10px">Complete Sections 1, 2 and 3. The financial institution or pension plan to
+                which you are moving your benefit completes Section 4.</p>
+            <p style="padding-top: 10px;padding-bottom: 10px"><b>Section 4 must be completed <i>before</i> we can process your
+                transfer.</b></p>
+            <p>To help us serve you better, submit your documents quickly and securely using your myOMERS account. Go to
+                My Communications, start a new conversation, attach your files, and submit.</p>
+        </div>
+        <div style="width: 47%;position: relative; float: right">
+            <p>Any personal information provided on this form may be used to update your membership profile.</p>
+            <p style="padding-top: 10px">Providing OMERS with your personal information is considered consent for its
+                use and disclosure for the purposes set out in our Privacy Statement, as amended from time to time. You
+                can find out more about our collection, use, disclosure and retention of personal information by
+                reviewing our Privacy Statement at www.omers.com.</p>
+        </div>
+    </div>
+    <div style="position: relative; width: 100%; top: 23px; height: 18px"><p class="heading" style="float: left">SECTION
+        1 - APPLICANT INFORMATION</p></p></div>
+    <div style="position: relative; width: 100%; top: 50px">
+        <table style="width: 100%">
+            <tr style="height: 36px">
+                <td valign="top" style="width: 80%">
+                    Social Insurance Number<br/>
+                    ${socialInsuranceNumber}
+                </td>
+                <td valign="top" style="width: 20%">
+                    Date of Birth (m/d/y)<br/>
+                    ${dateOfBirth}
+                </td>
+            </tr>
+        </table>
+        <table style="width: 100%">
+            <tr style="height: 36px">
+                <td style="width: 20%"><label style="padding-right: 20px">
+                    <#if isMr==true>
+                    <input type="checkbox" checked="checked">
+                    <#else>
+                    <input type="checkbox">
+                    </#if>
+                    Mr.</label>
+                    <label style="padding-right: 20px;">
+                        <#if isMrs==true>
+                        <input type="checkbox" checked="checked">
+                        <#else>
+                        <input type="checkbox">
+                    </#if>
+                        Mrs.</label>
+                    <label>
+                        <#if isMs==true>
+                        <input type="checkbox" checked="checked">
+                        <#else>
+                        <input type="checkbox">
+                    </#if>
+                        Ms.</label><br/>
+                    <label>
+                        <#if isOther==true>
+                        <input type="checkbox" checked="checked">
+                        <#else>
+                        <input type="checkbox">
+                    </#if>
+                        Other:</label>
+                </td>
+                <td valign="top" style="width: 20%">
+                    First Name<br/>
+                    ${firstName}
+                </td>
+                <td valign="top" style="width: 20%">
+                    Middle Name<br/>
+                    ${middleName}
+                </td>
+                <td valign="top" style="width: 40%">
+                    Last Name<br/>
+                    ${lastName}
+                </td>
+            </tr>
+
+
+        </table>
+        <table style="width: 100%">
+            <tr style="height: 36px">
+                <td valign="top" style="width: 10%">
+                    Apt/Unit<br/>
+                    ${section1Apt}
+                </td>
+                <td valign="top" style="width: 31%">
+                    Address<br/>
+                    ${section1Address}
+                </td>
+                <td valign="top" style="width: 20%">
+                    City<br/>
+                    ${section1City}
+                </td>
+                <td valign="top" style="width: 10%">
+                    Province<br/>
+                    ${section1Province}
+                </td>
+                <td valign="top" style="width: 16%">
+                    Postal Code<br/>
+                    ${section1PostalCode}
+                </td>
+            </tr>
+        </table>
+        <table style="width: 100%">
+            <tr style="height: 36px">
+                <td valign="top" style="width: 25%">
+                    Home Number<br/>
+                    ${homeNumber}
+                </td>
+                <td valign="top" style="width: 20%">
+                    Mobile Number<br/>
+                    ${mobileNumber}
+                </td>
+                <td valign="top" style="width: 55%">
+                    Email<br/>
+                    ${email}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="position: relative; width: 100%; top: 66px;"><p class="heading" style="float: left"> SECTION 2 -
+        DIRECTION</p></div>
+    <p style="position: relative; padding-top: 91px"><span>Pursuant to Section 42 of the Ontario <i>Pension Benefits Act</i> (PBA) I am transferring part or all of the commuted value of my pension.</span><br/>
+        <span style="position: relative; top: 14px"><b>From: OMERS, EY Tower, 900 -100 Adelaide St W, Toronto, ON M5H 0E2</b></span><br/>
+        <span style="position: relative; top: 27px"><b>To:</b> (<i>please check and complete one of the following</i>)</span><br>
+    </p>
+
+    <div style="position: relative; width: 100%; padding-top: 39px;">
+        <span><label><#if isRegPensionPlan==true>
+            <input type="checkbox" checked="checked" class="checkmark">
+             <#else>
+            <input type="checkbox" class="checkmark">
+            </#if>
+            <span style="padding-left: 5px"><b>Registered Pension Plan</b></span></label>
+        </span>
+        <div style="position:relative; padding-top: 11px;">
+            <div style="position:relative; padding-bottom: 12px; width: 96%; left: 15px">
+                <table style="width: 100%; position: relative">
+                    <tr style="height: 36px">
+                        <td valign="top">
+                            Name of Pension Plan<br/>
+                            <#if isRegPensionPlan==true> ${nameOfPensionPlan} <#else></#if>
+                        </td>
+                    </tr>
+                </table>
+                <table style="width: 100%; position: relative;">
+                    <tr style="height: 36px">
+                        <td valign="top" style="width: 50%">
+                            Address<br/>
+                            <#if isRegPensionPlan==true> ${section2Address1} <#else></#if>
+                        </td>
+                        <td valign="top" style="width: 20%">
+                            City<br/>
+                            <#if isRegPensionPlan==true> ${section2City1} <#else></#if>
+                        </td>
+                        <td valign="top" style="width: 10%">
+                            Province<br/>
+                            <#if isRegPensionPlan==true> ${section2Province1} <#else></#if>
+                        </td>
+                        <td valign="top" style="width: 20%">
+                            Postal Code<br/>
+                            <#if isRegPensionPlan==true> ${section2PostalCode1} <#else></#if>
+                        </td>
+                    </tr>
+                </table>
+                <table style="width: 100%; position: relative;">
+                    <tr style="height: 36px">
+                        <td valign="top" style="width: 22%">
+                            Phone<br/>
+                            <#if isRegPensionPlan==true> ${section2Phone} <#else></#if>
+                        </td>
+                        <td valign="top" style="width: 39%">
+                            Provincial or Federal registration number (if any)<br/>
+                            <#if isRegPensionPlan==true> ${provincialOrFederalRegNumber} <#else></#if>
+                        </td>
+                        <td valign="top" style="width: 39%">
+                            CCRA registration number (if any)<br/>
+                            <#if isRegPensionPlan==true> ${ccraRegNumber} <#else></#if>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <span style="position: relative;"><label>
+                <#if isRRSPorLIRA==true>
+                <input type="checkbox" checked="checked" class="checkmark">
+                <#else>
+                  <input type="checkbox" class="checkmark">
+                </#if>
+                <span style="padding: 5px"><b>Locked-in RRSP or LIRA</b>, established under the <i>Income Tax Act</i> of Canada</span></label>
+            </span>
+            <div style="position: relative;padding-top: 9px; padding-bottom: 9px; left: 15px; width: 96%">
+                <table style="width: 100%; position: relative;">
+                    <tr style="height: 36px">
+                        <td valign="top" style="width: 60%">
+                            Name of Financial Institution providing the RRSP or LIRA<br/>
+                            <#if isRRSPorLIRA==true> ${nameOfFinancialInstitution} <#else></#if>
+                        </td>
+                        <td valign="top" style="width: 40%">
+                            RRSP or LIRA account number<br/>
+                            <#if isRRSPorLIRA==true> ${rrspOrLiraAcoountNumber} <#else></#if>
+                        </td>
+                    </tr>
+                </table>
+                <table style="width: 100%; position: relative;">
+                    <tr style="height: 36px">
+                        <td valign="top" style="width: 50%">
+                            Address<br/>
+                            <#if isRRSPorLIRA==true> ${section2Address2} <#else></#if>
+                        </td>
+                        <td valign="top" style="width: 20%">
+                            City<br/>
+                            <#if isRRSPorLIRA==true> ${section2City2} <#else></#if>
+                        </td>
+                        <td valign="top" style="width: 10%">
+                            Province<br/>
+                            <#if isRRSPorLIRA==true> ${section2Province2} <#else></#if>
+                        </td>
+                        <td valign="top" style="width: 20%">
+                            Postal Code<br/>
+                            <#if isRRSPorLIRA==true> ${section2PostalCode2} <#else></#if>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <p><label>
+                <#if isAnnuity==true>
+                <input type="checkbox" checked="checked" class="checkmark">
+                <#else>
+                <input type="checkbox" class="checkmark">
+                </#if>
+                <span style="position: relative;"><span style="padding: 5px"><b>Annuity</b> (The insurance company below will purchase a life annuity which conforms with the PBA and the regulation made under the PBA,
+                <span style="padding-left: 17px;">payment of which will not occur before the earliest date the member would have been entitled to receive a pension coincident with the benefit
+                </span><span style="padding-left: 17px;">transferred from OMERS.)</span></span></span></label>
+            </p>
+            <div style="position: relative; padding-top: 6px; left: 15px; width: 96%">
+                <table style="width: 100%; position: relative;">
+                    <tr style="height: 36px">
+                        <td valign="top">
+                            Name of Insurance Company<br/>
+                            <#if isAnnuity==true>${nameOfInsuranceCompany}<#else></#if>
+                        </td>
+                    </tr>
+                </table>
+                <table style="width: 100%; position: relative;">
+                    <tr style="height: 36px">
+                        <td valign="top" style="width: 50%">
+                            Address of Branch of the Insurance Company Paying the Annuity<br/>
+                            <#if isAnnuity==true> ${section2Address3}<#else></#if>
+                        </td>
+                        <td valign="top" style="width: 20%">
+                            City<br/>
+                            <#if isAnnuity==true> ${section2City3}<#else></#if>
+                        </td>
+                        <td valign="top" style="width: 10%">
+                            Province<br/>
+                            <#if isAnnuity==true> ${section2Province3}<#else></#if>
+                        </td>
+                        <td valign="top" style="width: 20%">
+                            Postal Code<br/>
+                            <#if isAnnuity==true> ${section2PostalCode3} <#else></#if>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class=div-footer>
+        <hr style="position: relative;">
+        <div style="position: relative;text-align: center;" class="footer">
+            <span style="float: right"><span style="float: right">Page 1 of 2</span><br/>DTA - Nov. 2020</span>
+        </div>
+    </div>
+</div>
+
+<div id="page2-div" style="position:relative;width:100%;height:980px;padding-top: 3px">
+    <div style="position: relative; width: 100%; height: 40px"><img
+            src="OMERS_PAGE_LOGO_BW"
+            style="position: absolute;height: 30pt;top: 0pt;">
+        <form style="position: relative; top: 18px; display: inline-block; bottom: 2px; height:40px; width: 35%; border: 1px solid black; float: right">
+            <label>Social Insurance Number</label><br/>
+            <span>${socialInsuranceNumber}</span></form>
+
+    </div>
+
+    <div><hr style="position: relative; width: 100%"></div>
+    <div style="position: relative; width: 100%; height: 31px"><p class="heading" style="float: left">SECTION 3 -
+        APPLICANT'S SIGNATURE</p></p></div>
+    <p>By signing below, I certify that I am a former member of OMERS and I am entitled to a deferred pension from
+        OMERS.</p>
+    <div><span style="position: relative; top: 18px">I terminated employment on:</span>
+        <form style="position: relative; left: 155px; width: 137px; height: 40px; border: 1px solid black"><label>Termination Date
+            (m/d/y)</label><br/><span>${section3TerminationDate}</span></form>
+    </div>
+    <div style="padding-top: 34px">
+        <div style="width: 69%; float: left; height: 42px">
+            <hr>
+            <br/><span style="position: relative; top: -19px">Applicant's Signature</span></div>
+        <div style="width: 30%; float: right; height: 42px">
+            <hr>
+            <br/><span style="position: relative; top: -19px">Date(m/d/y)</span></div>
+    </div>
+
+    <div style="height: 74px">
+        <div style="width: 69%; float: left; height: 42px">
+            <hr>
+            <br/><span style="position: relative; top: -19px">Signature of Witness</span></div>
+        <div style="width: 30%; float: right; height: 42px">
+            <hr>
+            <br/><span style="position: relative; top: -19px">Date(m/d/y)</span></div>
+    </div>
+    <div style="position: relative; width: 100%; height: 31px"><p class="heading" style="float: left">SECTION 4 -
+        CERTIFICATION OF RECEIVING PLAN</p></p></div>
+    <p>To be completed by the financial institution, trustee or administrator <i>before</i> the funds are transferred.</p>
+    <div style="position: relative;top: 21px;"><span>I,</span>
+    <form style="position: relative; height: 40px; display: inline-block; left: 13px; width: 23%; border: 1px solid black; top: 2px">
+        <label>Administrator's Name</label><br/>
+        <span>${section4AdministratorName}</span>
+    </form>
+        <span style="padding-left: 27px">certify that I am the administrator of</span>
+    <form style="position: relative; height: 40px; display: inline-block;  float: right; width: 45%; border: 1px solid black; top: 7px">
+        <label>Name of Financial Institution</label><br/>
+        <span>${section4NameOfFinancialInstitution}</span>
+    </form>
+    </div>
+   <div style="position: relative;top: 21px;">
+        <span>I consent to accept the transfer of the commuted value of the pension of</span>
+    <form style="position: relative; height:40px;display: inline-block; top: 7px; width: 30%; border: 1px solid black">
+        <label>Applicant's Name</label><br/>
+        <span>${section4applicantName}</span>
+    </form>
+    <span>from OMERS.</span>
+    </div>
+    <div style="position: relative;top: 33px"><span>I consent to administer the transferred funds in accordance with the Ontario <i>Pension Benefits Act</i> and the
+        regulations under it, as the same may be
+        amended from time to time.</span></div>
+    <div style="height: 74px">
+        <div style="width: 69%; float: left; padding-top: 96px">
+            <hr>
+            <br/><span style="position: relative; top: -19px">Signature of Administrator</span></div>
+        <div style="width: 30%; float: right; padding-top: 96px">
+            <hr>
+            <br/><span style="position: relative; top: -19px">Date(m/d/y)</span></div>
+    </div>
+    <div class="div-footer">
+        <hr style="position: relative;">
+        <div style="position: relative;" class="footer">
+            <div style="float: left; width: 60%">
+                <span style="float: left;"><b>OMERS</b> EY Tower | 900 - 100 Adelaide St W | Toronto,ON MSH 0E2 | Canada | omers.com</span>
+                <br/><span style="float: left;"><b>Member Support  T +1416.369.2444 +1800.387.0813 | F +1416.369.9704 +1877.369.9704</b></span>
+
+            </div>
+            <div style="float: right; width: 40%">
+                <span style="float: right; position:relative;">Page 2 of 2</span><br/><span style="float: right;">DTA - Nov. 2020</span>
+            </div>
+            <div>
+                <span style="float: left;"><b>Employer Support  T +1416.350.6750 +1833.884.0389 | F +1416.369.9704 +1877.369.9704</b></span>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

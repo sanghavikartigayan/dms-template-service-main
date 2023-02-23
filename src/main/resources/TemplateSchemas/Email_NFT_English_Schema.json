@@ -1,0 +1,14 @@
+[
+  {
+    "fieldName": "memberName",
+    "fieldType": "STRING",
+    "isRequired": true,
+    "defaultValue": ""
+  },
+  {
+    "fieldName": "employerName",
+    "fieldType": "STRING",
+    "isRequired": true,
+    "defaultValue": ""
+  }
+]

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+      xmlns:o="urn:schemas-microsoft-com:office:office" lang-="en">
+<head>
+    <title>Batch Print</title>
+
+    <style>
+        .text-generic {margin: 0cm; font-size: 13.5pt; font-family: Arial, sans-serif; color: rgb(1, 58, 112); text-align: left;white-space: pre;}
+        .data-details {margin: 0cm; font-size: 13.5pt; font-family: Arial, sans-serif; color: rgb(1, 58, 112); text-align: left;}
+
+    </style>
+</head>
+<body>
+<table style="margin-left:auto;margin-right:auto;">
+    <tbody>
+    <tr>
+        <td style="padding: 0cm;">
+            <p class="text-generic">
+                Good day,
+                <br/>
+                There has been a batch print for the NFT Offer Packs that contain:
+                <br/>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <br/>
+    </tr>
+    <tr>
+        <td style="padding-left: 40px;">
+            <p class="text-generic">
+                Document Name: ${document_name}<br/>
+                Number of documents printed: ${batch_count}<br/>
+                First Print ID: ${first_print_id}<br/>
+                Last Print ID: ${last_print_id}<br/>
+                Generated on: ${.now?string.iso}<br/>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <br/>
+    </tr>
+
+    <tr>
+
+        <td>
+            <p class="data-details">
+            Details:
+                <br/>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-left: 40px;">
+            <table>
+                 <p class="data-details">
+                <#list details as detail>
+                <thead>
+                    <tr>
+                        <th class="data-details">Name</th>
+                        <th class="data-details">Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <#list detail?keys as key>
+
+                    <tr>
+                    <td class="data-details">${key}</td>
+                    <td class="data-details">${detail[key]}</td>
+                    </tr>
+                    </#list>
+                </tbody>
+                </#list>
+                </p>
+            </table>
+
+        </td>
+    </tr>
+    <tr>
+        <br/><br/>
+    </tr>
+    <tr>
+        <td style="padding: 0cm;">
+            <p class="text-generic">
+                Thank you,
+                <br/>
+                Donna Team
+                <br/>
+            </p>
+        </td>
+    </tr>
+</tbody>
+</table>
+</body>
+</html>

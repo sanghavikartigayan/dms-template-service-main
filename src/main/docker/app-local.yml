@@ -1,0 +1,31 @@
+version: '2'
+services:
+  dms-template-service-app:
+    image: dms-template-service:0.0.1-SNAPSHOT
+    hostname: dms-template-service
+    container_name: dms-template-service
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=local
+      - KAFKA_HOST=broker:29092
+      - DB_HOST=dms-template-service-postgresql:5432
+    ports:
+      - "9246:9246"
+    depends_on:
+      - zookeeper
+      - broker
+      - dms-template-service-postgresql
+  orchestrator-postgresql:
+    extends:
+      file: baseline.yml
+      service: dms-template-service-postgresql
+  broker:
+    extends:
+      file: baseline.yml
+      service: broker
+    depends_on:
+      - zookeeper
+  zookeeper:
+    extends:
+      file: baseline.yml
+      service: zookeeper

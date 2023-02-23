@@ -1,0 +1,6 @@
+version: '2'
+services:
+  dms-template-service-postgresql:
+    extends:
+      service: dms-template-service-postgresql
+      file: baseline.yml
